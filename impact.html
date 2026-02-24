@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Impact | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav">
+      <div class="brand">
+        <div class="name">YOUR NAME</div>
+        <div class="tag">Impact Library</div>
+      </div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a class="active" href="impact.html">Impact</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="playbooks.html">Playbooks</a>
+        <a href="ai.html">AI</a>
+        <a href="about.html">About</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1 style="margin-top:0">Impact Library</h1>
+      <p class="small">Click tags to filter. This page is designed for fast skimming by hiring managers.</p>
+
+      <div class="badges" id="filters" aria-label="Filters">
+        <button class="chip" aria-pressed="true" data-tag="All">All</button>
+        <button class="chip" aria-pressed="false" data-tag="Ops">Ops</button>
+        <button class="chip" aria-pressed="false" data-tag="Governance">Governance</button>
+        <button class="chip" aria-pressed="false" data-tag="Measurement">Measurement</button>
+        <button class="chip" aria-pressed="false" data-tag="Pipeline">Pipeline</button>
+        <button class="chip" aria-pressed="false" data-tag="Journey">Journey</button>
+        <button class="chip" aria-pressed="false" data-tag="Growth">Growth</button>
+        <button class="chip" aria-pressed="false" data-tag="AI">AI</button>
+        <button class="chip" aria-pressed="false" data-tag="Adoption">Adoption</button>
+      </div>
+    </section>
+
+    <section class="grid" id="cards" style="margin-top:14px">
+      <!-- Each card has data-tags="Tag1,Tag2" -->
+      <article class="card" data-tags="Ops,Governance,Measurement">
+        <h3>KPI Operating System (multi-LOB)</h3>
+        <p class="small">Standardized KPI definitions and reporting rhythms across business lines to improve executive trust and make performance discussions decision-oriented.</p>
+        <div class="badges">
+          <span class="chip static">Ops</span><span class="chip static">Governance</span><span class="chip static">Measurement</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="Ops,Governance">
+        <h3>Executive reporting risk reduction</h3>
+        <p class="small">Reduced “spreadsheet surprises” via controlled calculations, locked logic, and QA steps to protect credibility in leadership forums.</p>
+        <div class="badges">
+          <span class="chip static">Ops</span><span class="chip static">Governance</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="Ops,Measurement">
+        <h3>Marketing performance operating rhythm (MOR/QBR)</h3>
+        <p class="small">Built repeatable readouts that convert metrics into actions, risks, and priorities across stakeholders.</p>
+        <div class="badges">
+          <span class="chip static">Ops</span><span class="chip static">Measurement</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="Pipeline,Growth,Measurement">
+        <h3>Funnel & lifecycle standardization (Marketing ↔ Sales)</h3>
+        <p class="small">Defined lifecycle stages and conversion metrics to create a single view of funnel performance and handoffs.</p>
+        <div class="badges">
+          <span class="chip static">Pipeline</span><span class="chip static">Growth</span><span class="chip static">Measurement</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="Pipeline,Measurement">
+        <h3>Pipeline coverage goals V1</h3>
+        <p class="small">Created an initial coverage framework to set targets, inspect gaps, and iterate with a steady cadence.</p>
+        <div class="badges">
+          <span class="chip static">Pipeline</span><span class="chip static">Measurement</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="Ops,Measurement">
+        <h3>Spend → revenue linkage (finance-grade)</h3>
+        <p class="small">Connected expense and performance to revenue views to support credible ROI conversations and budget allocation.</p>
+        <div class="badges">
+          <span class="chip static">Ops</span><span class="chip static">Measurement</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="Journey,Growth,Measurement">
+        <h3>Journey measurement framework</h3>
+        <p class="small">Mapped journeys, defined stage KPIs, and prioritized optimization based on value and feasibility.</p>
+        <div class="badges">
+          <span class="chip static">Journey</span><span class="chip static">Growth</span><span class="chip static">Measurement</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="Journey,Growth,Adoption">
+        <h3>Optimization loop: insight → backlog → action</h3>
+        <p class="small">Turned performance insights into a repeatable execution system with hypotheses, prioritization, and readout format.</p>
+        <div class="badges">
+          <span class="chip static">Journey</span><span class="chip static">Growth</span><span class="chip static">Adoption</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="Ops,Governance">
+        <h3>Tool evaluation: measurement / multi-touch platform</h3>
+        <p class="small">Built requirements and evaluation criteria (including integration effort and operating model impact) to guide build-vs-buy decisions.</p>
+        <div class="badges">
+          <span class="chip static">Ops</span><span class="chip static">Governance</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="AI,Ops,Adoption">
+        <h3>AI: MIA for self-serve truth</h3>
+        <p class="small">Launched a governed, role-based copilot to find SOPs, RACI ownership, dashboard locations, and data sources with citations and no-inference rules.</p>
+        <div class="badges">
+          <span class="chip static">AI</span><span class="chip static">Ops</span><span class="chip static">Adoption</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="AI,Measurement,Adoption">
+        <h3>AI: MMM learning + decision support</h3>
+        <p class="small">Built a scenario- and role-based MMM assistant to ramp channel owners and revenue marketers and support media investment decisions.</p>
+        <div class="badges">
+          <span class="chip static">AI</span><span class="chip static">Measurement</span><span class="chip static">Adoption</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="Governance,Ops">
+        <h3>Governance that scales</h3>
+        <p class="small">Established ownership, documentation standards, escalation paths, and change control to prevent metric drift and “multiple truths.”</p>
+        <div class="badges">
+          <span class="chip static">Governance</span><span class="chip static">Ops</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="Ops,Adoption">
+        <h3>“Measurement as a product” mindset</h3>
+        <p class="small">Built measurement as a product: user needs, documentation, QA, adoption metrics, and an iterative roadmap tied to outcomes.</p>
+        <div class="badges">
+          <span class="chip static">Ops</span><span class="chip static">Adoption</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="AI,Adoption">
+        <h3>AI adoption model</h3>
+        <p class="small">Drove adoption through training cohorts, ambassador network, office hours, internal launches, and short “how it works” videos.</p>
+        <div class="badges">
+          <span class="chip static">AI</span><span class="chip static">Adoption</span>
+        </div>
+      </article>
+
+      <article class="card" data-tags="AI,Ops">
+        <h3>AI: pre-structured performance access</h3>
+        <p class="small">Enabled broader access via curated performance views for users without dashboard permissions.</p>
+        <div class="badges">
+          <span class="chip static">AI</span><span class="chip static">Ops</span>
+        </div>
+      </article>
+    </section>
+
+    <script>
+      (function(){
+        const filterBar = document.getElementById('filters');
+        const buttons = Array.from(filterBar.querySelectorAll('button[data-tag]'));
+        const cards = Array.from(document.querySelectorAll('#cards .card'));
+
+        function setActive(tag){
+          buttons.forEach(b => b.setAttribute('aria-pressed', (b.dataset.tag === tag).toString()));
+          cards.forEach(c => {
+            const tags = (c.getAttribute('data-tags') || '').split(',').map(s => s.trim());
+            const show = (tag === 'All') || tags.includes(tag);
+            c.style.display = show ? '' : 'none';
+          });
+        }
+
+        buttons.forEach(btn => {
+          btn.addEventListener('click', () => setActive(btn.dataset.tag));
+        });
+
+        setActive('All');
+      })();
+    </script>
+  </main>
+
+  <footer class="footer">
+    Tip: keep tiles short and outcome-based. Add numbers later where possible.
+  </footer>
+</body>
+</html>
+
+
