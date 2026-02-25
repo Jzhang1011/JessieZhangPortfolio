@@ -58,9 +58,11 @@ a:hover{ text-decoration: underline; text-underline-offset: 4px; }
 .container{
   max-width:1120px;
   margin: 0 auto;
-  padding: 34px var(--gutter) 70px;
+ padding: 36px 16px 84px;  /* smaller side padding */
 }
-
+@media (max-width: 640px){
+  .container{ padding: 24px 14px 64px; }
+}
 /* Top bar (clean tech nav) */
 .topbar{
   position: sticky;
