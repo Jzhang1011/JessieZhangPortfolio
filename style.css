@@ -33,8 +33,10 @@
   --shadow-lg: 0 26px 70px rgba(15, 23, 42, .16);
 
   /* Type */
-  --font: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+ --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial;
+  --font-serif: "Fraunces", ui-serif, Georgia, "Times New Roman", Times, serif;
 }
+body{ font-family: var(--font-sans); }
 
 *{ box-sizing:border-box; }
 html,body{ margin:0; padding:0; }
@@ -211,7 +213,7 @@ hr{
   border-top: 1px solid var(--line);
   margin: 16px 0;
 }
-
+h1,h2{ font-family: var(--font-sans); }
 /* Section header row */
 .sectionTitle{
   display:flex;
@@ -561,7 +563,7 @@ body.madison{
   color: #0b0f18;
 }
 .hero2-title .serif{
-  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+    font-family: var(--font-serif);
   font-style: italic;
   font-weight: 500;
   letter-spacing: -0.02em;
