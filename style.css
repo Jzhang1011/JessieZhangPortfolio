@@ -54,7 +54,7 @@ a{ color: var(--purple); text-decoration:none; }
 a:hover{ text-decoration: underline; text-underline-offset: 4px; }
 
 .container{
-  max-width: var(--max);
+  max-width:1120px;
   margin: 0 auto;
   padding: 34px var(--gutter) 70px;
 }
