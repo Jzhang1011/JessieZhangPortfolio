@@ -56,7 +56,7 @@ a:hover{ text-decoration: underline; text-underline-offset: 4px; }
 .container{
 /* Wider desktop canvas */
 .container{
-  max-width: 1320px;     /* was ~1120 */
+  max-width: 1120px;     /* was ~1120 */
   margin: 0 auto;
   padding: 36px 16px 84px;  /* smaller side padding */
 }
