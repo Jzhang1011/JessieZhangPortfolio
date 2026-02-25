@@ -54,11 +54,15 @@ a{ color: var(--purple); text-decoration:none; }
 a:hover{ text-decoration: underline; text-underline-offset: 4px; }
 
 .container{
-  max-width: var(--max);
+/* Wider desktop canvas */
+.container{
+  max-width: 1320px;     /* was ~1120 */
   margin: 0 auto;
-  padding: 34px var(--gutter) 70px;
+  padding: 36px 16px 84px;  /* smaller side padding */
 }
-
+@media (max-width: 640px){
+  .container{ padding: 24px 14px 64px; }
+}
 /* Top bar (clean tech nav) */
 .topbar{
   position: sticky;
@@ -519,8 +523,8 @@ body.madison{
 
 .hero2{
   display:grid;
-  grid-template-columns: 1.1fr .9fr;
-  gap: 26px;
+  grid-template-columns: 1.25fr .75fr; /* more space for text */
+  gap: 22px;
   padding: 30px 0 10px;
 }
 @media (max-width: 980px){
@@ -555,7 +559,7 @@ body.madison{
 .hero2-title{
   margin: 18px 0 14px;
   font-size: 45px;
-  line-height: 0.98;
+  line-height: 1.05;
   letter-spacing: -0.05em;
   font-weight: 900;
   color: #0b0f18;
