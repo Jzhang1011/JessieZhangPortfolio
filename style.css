@@ -509,3 +509,210 @@ body.dark hr{ border-top-color: rgba(255,255,255,.12); }
   }
   .contact-strip{ grid-template-columns: 1fr; }
 }
+/* --- Madison-inspired hero theme --- */
+body.madison{
+  background:
+    radial-gradient(900px 600px at 20% -10%, rgba(255, 200, 120, .45), transparent 60%),
+    radial-gradient(900px 600px at 90% 0%, rgba(255, 160, 180, .30), transparent 55%),
+    linear-gradient(180deg, #fff 0%, #fbf6ee 55%, #f7f7f9 120%);
+}
+
+.hero2{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 26px;
+  padding: 30px 0 10px;
+}
+@media (max-width: 980px){
+  .hero2{ grid-template-columns: 1fr; }
+}
+
+.status-pill{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.75);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  color: rgba(0,0,0,.75);
+}
+.status-pill .dot{
+  width:10px; height:10px; border-radius:999px;
+  background: #ff8a00;
+  box-shadow: 0 0 0 4px rgba(255,138,0,.18);
+}
+
+.hero2-eyebrow{
+  margin-top: 16px;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.55);
+}
+
+.hero2-title{
+  margin: 18px 0 14px;
+  font-size: 56px;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  font-weight: 900;
+  color: #0b0f18;
+}
+.hero2-title .serif{
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.hero2-title .big{
+  display:inline-block;
+}
+
+@media (max-width: 720px){
+  .hero2-title{ font-size: 40px; line-height: 1.08; }
+}
+
+.hero2-sub{
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(0,0,0,.72);
+  max-width: 62ch;
+}
+
+.hero2-cta{
+  margin-top: 18px;
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn.primary{
+  background: #0b0f18;
+  border-color: #0b0f18;
+  color: #fff;
+}
+.btn.primary:hover{ background:#121829; }
+
+.btn.ghost{
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(0,0,0,.12);
+  color: #0b0f18;
+}
+.btn.ghost:hover{ background: rgba(255,255,255,.95); }
+
+.hero2-miniGrid{
+  margin-top: 18px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media (max-width: 720px){
+  .hero2-miniGrid{ grid-template-columns: 1fr; }
+}
+
+.miniCard{
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.70);
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.06);
+}
+.miniLabel{
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,.50);
+  font-weight: 800;
+}
+.miniValue{
+  margin-top: 8px;
+  font-size: 14px;
+  color: rgba(0,0,0,.72);
+  line-height: 1.6;
+}
+
+.portraitCard{
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.35);
+  box-shadow: 0 30px 80px rgba(0,0,0,.12);
+  min-height: 520px;
+}
+.portraitCard img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display:block;
+}
+.portraitFade{
+  position:absolute;
+  inset:0;
+  background: radial-gradient(450px 320px at 50% 30%, rgba(255,255,255,.18), transparent 70%),
+              linear-gradient(180deg, transparent 30%, rgba(255,255,255,.65) 95%);
+}
+
+.section2{ margin-top: 44px; }
+.section2-titleRow{
+  display:flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.section2-title{
+  font-size: 14px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+.section2-link{
+  font-size: 13px;
+  color: rgba(0,0,0,.60);
+}
+.section2-link:hover{ color: rgba(0,0,0,.85); text-decoration:none; }
+
+.projectGrid{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+@media (max-width: 820px){
+  .projectGrid{ grid-template-columns: 1fr; }
+}
+
+.projectCard{
+  display:block;
+  border-radius: 22px;
+  border: 1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.70);
+  overflow:hidden;
+  box-shadow: 0 18px 46px rgba(0,0,0,.08);
+}
+.projectThumb{
+  height: 220px;
+  background: #f2f3f5;
+}
+.projectThumb img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+}
+.projectMeta{
+  padding: 16px 16px 18px;
+}
+.projectName{
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #0b0f18;
+}
+.projectDesc{
+  margin-top: 6px;
+  font-size: 14px;
+  color: rgba(0,0,0,.68);
+  line-height: 1.6;
+}
