@@ -1472,31 +1472,23 @@ body.madison{
 .device.device--ipad .device__screen::after{
   filter: blur(0.2px);
 }
-/* =========================================================
-   iPad hands mockup + live screen overlay
-   ========================================================= */
-
+/* iPad hands mockup + perfectly aligned live screen overlay */
 .ipad-hands{
-  /* Use your mockup image */
   background: url("assets/mockups/ipad-hands.png") center/contain no-repeat;
-
-  /* Responsive sizing */
-  width: min(760px, 92vw);
-  margin: 18px auto 8px;
-
-  /* Match image proportions (your example is ~410x400) */
-  aspect-ratio: 410 / 400;
-
+  width: min(820px, 92vw);
+  margin: 18px auto 10px;
+  aspect-ratio: 1025 / 659; /* match your real file */
   position: relative;
+  isolation: isolate;
 }
 
-/* Screen window position (tune these 4 values) */
+/* Screen window alignment (measured from your file) */
 .ipad-hands{
-  --screen-left: 14.5%;
-  --screen-top: 18.5%;
-  --screen-width: 71%;
-  --screen-height: 63%;
-  --screen-radius: 14px;
+  --screen-left: 21.2%;
+  --screen-top: 22.8%;
+  --screen-width: 54.4%;
+  --screen-height: 63.1%;
+  --screen-radius: 18px;
 }
 
 .ipad-screen{
@@ -1507,16 +1499,16 @@ body.madison{
   height: var(--screen-height);
 
   border-radius: var(--screen-radius);
-  overflow: hidden; /* clip your rotating content to the screen */
+  overflow: hidden;
   background: #f7f7f8;
 
-  /* subtle glass/shadow to blend into photo */
+  /* subtle blend into the photo */
   box-shadow:
-    inset 0 0 0 1px rgba(0,0,0,.08),
+    inset 0 0 0 1px rgba(0,0,0,.10),
     0 12px 30px rgba(0,0,0,.12);
 }
 
-/* Make your rotating tile fill the “screen” */
+/* Fill the screen area */
 .ipad-screen .tileShow{
   position: absolute;
   inset: 0;
@@ -1527,7 +1519,7 @@ body.madison{
   padding: 22px;
 }
 
-/* Mobile tweaks */
+/* mobile */
 @media (max-width: 520px){
   .ipad-screen .tileShow{ padding: 16px; }
 }
