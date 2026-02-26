@@ -1585,3 +1585,19 @@ body.madison{
   border-bottom: 1px solid rgba(17,24,39,.06);
   pointer-events:none;
 }
+/* Watermark in bottom-right of iPad screen */
+.ipad-screen{
+  position: absolute; /* you already have this */
+}
+
+.ipad-screen::after{
+  content:"@Jessie Zhang";
+  position: absolute;
+  right: 18px;
+  bottom: 14px;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(17,24,39,.38);
+  pointer-events: none;
+}
