@@ -1053,3 +1053,17 @@ h3{ letter-spacing: .08em; }
   background: rgba(141,89,233,.18);
   text-decoration:none;
 }
+/* Impact rotator controls */
+.impact-rotator{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 12px;
+  margin: 16px 0 6px;
+}
+
+.impact-rotator__btns{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
