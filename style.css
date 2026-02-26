@@ -1293,3 +1293,5 @@ body.madison{
   .device__screen{ border-radius: 22px; }
   .tileShow{ padding: 18px; min-height: 260px; }
 }
+/* Hide old tiles when using the showcase */
+#impactGrid{ display: none; }
