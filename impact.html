@@ -403,6 +403,122 @@
   startTimer();
 })();
 </script>
+    <script>
+(function(){
+  const items = [
+    {
+      title: "KPI Operating System (multi-LOB)",
+      desc: "Standardized KPI definitions + QA + operating rhythm so leadership forums focus on decisions, not metric debates.",
+      tags: ["Ops","Governance","Measurement"],
+      link: "case-studies.html#kpi-os"
+    },
+    {
+      title: "Spend → revenue linkage (finance-grade)",
+      desc: "Connected expense and performance to revenue views to enable credible ROI conversations and investment allocation.",
+      tags: ["Ops","Measurement"],
+      link: "case-studies.html#spend-revenue"
+    },
+    {
+      title: "Funnel & lifecycle standardization (Marketing ↔ Sales)",
+      desc: "Defined lifecycle stages and conversion metrics to create a single funnel truth and improve planning inputs.",
+      tags: ["Pipeline","Growth","Measurement"],
+      link: "case-studies.html#pipeline"
+    },
+    {
+      title: "Journey measurement & prioritization",
+      desc: "Prioritized journeys and defined stage KPIs to focus optimization on the highest-leverage customer paths.",
+      tags: ["Journey","Growth","Measurement"],
+      link: "case-studies.html#journey"
+    },
+    {
+      title: "MIA: Marketing Intelligence Assistant",
+      desc: "Governed, role-based copilot with citations + no-inference rules to scale onboarding and self-serve intelligence.",
+      tags: ["AI","Ops","Adoption"],
+      link: "ai.html#mia"
+    },
+    {
+      title: "MMM Copilot: learning + decision support",
+      desc: "Role- and scenario-based MMM enablement for channel owners and revenue marketers—always-on decision support.",
+      tags: ["AI","Measurement","Adoption"],
+      link: "ai.html#mmm"
+    },
+    {
+      title: "Executive reporting risk reduction",
+      desc: "Reduced “spreadsheet surprises” via locked logic, QA steps, and governance that protects credibility in exec forums.",
+      tags: ["Ops","Governance"],
+      link: "playbooks.html"
+    },
+    {
+      title: "AI adoption operating model",
+      desc: "Scaled adoption through training cohorts, ambassadors, office hours, and internal comms—built to stick.",
+      tags: ["AI","Adoption"],
+      link: "playbooks.html"
+    }
+  ];
+
+  const el = document.getElementById("tileShow");
+  const status = document.getElementById("showStatus");
+  const prev = document.getElementById("showPrev");
+  const next = document.getElementById("showNext");
+  const pause = document.getElementById("showPause");
+
+  let idx = 0;
+  let paused = false;
+  let timer = null;
+
+  function render(){
+    const it = items[idx];
+    el.innerHTML = `
+      <div class="tileShow__top">
+        <div>
+          <h3 class="tileShow__title">${it.title}</h3>
+        </div>
+        <a class="tileShow__cta" href="${it.link}">Proof →</a>
+      </div>
+      <div class="tileShow__desc">${it.desc}</div>
+      <div class="tileShow__tags">
+        ${it.tags.map(t => `<span class="chip static">${t}</span>`).join("")}
+      </div>
+    `;
+    el.classList.remove("tileFadeIn");
+    void el.offsetWidth; // restart animation
+    el.classList.add("tileFadeIn");
+    status.textContent = `Showing ${idx+1} of ${items.length}`;
+  }
+
+  function goNext(){
+    idx = (idx + 1) % items.length;
+    render();
+  }
+  function goPrev(){
+    idx = (idx - 1 + items.length) % items.length;
+    render();
+  }
+
+  function start(){
+    stop();
+    timer = setInterval(() => { if (!paused) goNext(); }, 5000);
+  }
+  function stop(){
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  next.addEventListener("click", () => { paused = true; pause.textContent = "Resume"; goNext(); });
+  prev.addEventListener("click", () => { paused = true; pause.textContent = "Resume"; goPrev(); });
+  pause.addEventListener("click", () => {
+    paused = !paused;
+    pause.textContent = paused ? "Resume" : "Pause";
+  });
+
+  // pause on hover to read
+  el.addEventListener("mouseenter", () => { paused = true; pause.textContent = "Resume"; });
+  el.addEventListener("mouseleave", () => { paused = false; pause.textContent = "Pause"; });
+
+  render();
+  start();
+})();
+</script>
   </main>
 
   <footer class="footer">
