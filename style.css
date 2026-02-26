@@ -1182,3 +1182,79 @@ h3{ letter-spacing: .08em; }
 @media (max-width: 520px){
   .logo-strip__grid{ grid-template-columns: repeat(2, 1fr); }
 }
+/* Moving logo panel (marquee) */
+.logo-marquee{
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  margin-top: 12px;
+}
+
+/* soft fade on edges for “premium” */
+.logo-marquee::before,
+.logo-marquee::after{
+  content:"";
+  position:absolute;
+  top:0; bottom:0;
+  width: 56px;
+  z-index: 2;
+  pointer-events:none;
+}
+.logo-marquee::before{
+  left:0;
+  background: linear-gradient(90deg, rgba(255,255,255,.95), rgba(255,255,255,0));
+}
+.logo-marquee::after{
+  right:0;
+  background: linear-gradient(270deg, rgba(255,255,255,.95), rgba(255,255,255,0));
+}
+
+.logo-track{
+  display:flex;
+  gap: 12px;
+  align-items:center;
+  width: max-content;
+  padding: 8px 6px;
+  animation: logoScroll 24s linear infinite;
+}
+
+.logo-marquee:hover .logo-track{
+  animation-play-state: paused; /* pause on hover */
+}
+
+/* reuse your logo-item box, but keep it compact */
+.logo-item{
+  height: 44px;
+  min-width: 140px;          /* keeps spacing consistent */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 6px 10px;
+  border-radius: 14px;
+  border: 1px solid rgba(17,24,39,.06);
+  background: rgba(255,255,255,.65);
+}
+
+.logo-item img{
+  max-height: 22px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.05) opacity(.78);
+}
+
+.logo-item:hover img{
+  filter: grayscale(0) opacity(1);
+  transition: filter .18s ease;
+}
+
+@keyframes logoScroll{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* reduce motion accessibility */
+@media (prefers-reduced-motion: reduce){
+  .logo-track{ animation: none; }
+}
