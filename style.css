@@ -1469,3 +1469,6 @@ body.madison{
   .device.device--ipad .device__screen::before{ inset: 8px; border-radius: 24px; }
   .tileShow--big{ min-height: 300px; padding: 20px; }
 }
+.device.device--ipad .device__screen::after{
+  filter: blur(0.2px);
+}
