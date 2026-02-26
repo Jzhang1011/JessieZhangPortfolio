@@ -159,6 +159,27 @@
 })();
 </script>
     <section class="impact-grid" id="cards" style="margin-top:18px">
+      <section class="card" style="margin-top:14px">
+  <div class="sectionTitle" style="margin:0 0 10px">
+    <h2 style="margin:0">Impact showcase</h2>
+    <div class="impact-rotator__btns">
+      <button class="btn secondary" id="showPrev" type="button">Prev</button>
+      <button class="btn secondary" id="showNext" type="button">Next</button>
+      <button class="btn secondary" id="showPause" type="button">Pause</button>
+    </div>
+  </div>
+
+  <p class="small" id="showStatus" style="margin-top:6px">Showing 1 of 8</p>
+
+  <div class="device device--ipad" aria-label="Impact tiles rotating in device frame">
+    <div class="device__screen">
+      <div class="tileShow" id="tileShow">
+        <!-- JS injects tile content here -->
+      </div>
+    </div>
+    <div class="device__camera"></div>
+  </div>
+</section>
   <!-- 8 curated tiles (bigger + more visual impact) -->
 
   <article class="impact-card" data-tags="Ops,Governance,Measurement">
