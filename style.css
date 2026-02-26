@@ -203,7 +203,7 @@ p{
    font-size: 15.5px; line-height: 1.75; }
 .small{ font-size: 13.5px; }
 .list li{ font-size: 15px; }
-}
+
 
 .small{
   font-size: 13px;
@@ -1009,7 +1009,7 @@ body{ font-family: var(--font-sans); } /* fix font fallback */
 
 .container{ max-width: var(--max); }
 
-.card{ padding: 24px; }
+
 @media (max-width: 640px){ .card{ padding: 18px; } }
 
 .card::before{ opacity: .14; } /* reduce gloss noise */
