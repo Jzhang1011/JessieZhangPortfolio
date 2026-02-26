@@ -4,7 +4,7 @@
    - Electric Purple action + Acid Yellow highlights
    - Optional dark-mode emphasis sections
 */
-
+body.case .container{ max-width: 1320px; }
 :root{
   /* Palette */
   --bg: #ffffff;
