@@ -520,11 +520,12 @@ body.case::after{
   width: auto;
   max-width: 110px;    /* prevents very wide logos from dominating */
   object-fit: contain;
-  filter: grayscale(1) contrast(1.05) opacity(.78);
+  filter: grayscale(0.35) contrast(1.05) opacity(.9);
 }
 .logo-item:hover img{
-  filter: grayscale(0) opacity(1);
-  transition: filter .18s ease;
+  filter: none;
+  opacity: 1;
+  transition: filter .18s ease, opacity .18s ease;
 }
 
 /* ---------- Logo marquee (moving panel) ---------- */
