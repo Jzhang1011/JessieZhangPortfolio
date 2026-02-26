@@ -3,12 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Impact | Portfolio</title>
+  <title>Impact | Jessie Zhang</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header class="topbar">
     <nav class="nav">
@@ -28,503 +31,200 @@
   </header>
 
   <main class="container">
-    <section class="card showcase-card" style="margin-top:14px">
+
+    <!-- Header + Filters -->
+    <section class="card">
       <h1 style="margin-top:0">Impact Library</h1>
-      <p class="small"></p>
+      <p class="small">A curated showcase of the systems I build to increase executive trust, decision velocity, and adoption at scale.</p>
 
       <div class="badges" id="filters" aria-label="Filters">
-        <button class="chip" aria-pressed="true" data-tag="All">All</button>
-        <button class="chip" aria-pressed="false" data-tag="Ops">Ops</button>
-        <button class="chip" aria-pressed="false" data-tag="Governance">Governance</button>
-        <button class="chip" aria-pressed="false" data-tag="Measurement">Measurement</button>
-        <button class="chip" aria-pressed="false" data-tag="Journey">Journey</button>
-        <button class="chip" aria-pressed="false" data-tag="AI">AI</button>
-       
+        <button class="chip" aria-pressed="true" data-tag="All" type="button">All</button>
+        <button class="chip" aria-pressed="false" data-tag="Ops" type="button">Ops</button>
+        <button class="chip" aria-pressed="false" data-tag="Governance" type="button">Governance</button>
+        <button class="chip" aria-pressed="false" data-tag="Measurement" type="button">Measurement</button>
+        <button class="chip" aria-pressed="false" data-tag="Journey" type="button">Journey</button>
+        <button class="chip" aria-pressed="false" data-tag="AI" type="button">AI</button>
       </div>
     </section>
-<script>
-(function(){
-  const filterBar = document.getElementById('filters');
-  const buttons = Array.from(filterBar.querySelectorAll('button[data-tag]'));
-  const allCards = Array.from(document.querySelectorAll('#cards .impact-card, #cards .card'));
 
-  // Controls
-  const statusEl = document.getElementById('impactStatus');
-  const prevBtn = document.getElementById('impactPrev');
-  const nextBtn = document.getElementById('impactNext');
-  const pauseBtn = document.getElementById('impactPause');
-
-  // Settings
-  const pageSize = 6;
-  const intervalMs = 6000;
-
-  let activeTag = 'All';
-  let startIndex = 0;
-  let timer = null;
-  let isPaused = false;
-
-  // Cards that match the current filter
-  function getActiveCards(){
-    if (activeTag === 'All') return allCards;
-    return allCards.filter(c => {
-      const tags = (c.getAttribute('data-tags') || '').split(',').map(s => s.trim());
-      return tags.includes(activeTag);
-    });
-  }
-
-  function hideAll(){
-    allCards.forEach(c => c.style.display = 'none');
-  }
-
-  function showWindow(){
-    const activeCards = getActiveCards();
-    hideAll();
-
-    if (activeCards.length === 0){
-      statusEl.textContent = 'No items for this filter';
-      return;
-    }
-
-    // Wrap startIndex if needed
-    if (startIndex >= activeCards.length) startIndex = 0;
-    if (startIndex < 0) startIndex = Math.max(0, activeCards.length - (activeCards.length % pageSize || pageSize));
-
-    const endIndex = Math.min(startIndex + pageSize, activeCards.length);
-    for (let i = startIndex; i < endIndex; i++){
-      activeCards[i].style.display = '';
-    }
-
-    statusEl.textContent = `Showing ${startIndex + 1}–${endIndex} of ${activeCards.length}`;
-  }
-
-  function next(){
-    startIndex += pageSize;
-    const activeCards = getActiveCards();
-    if (startIndex >= activeCards.length) startIndex = 0;
-    showWindow();
-  }
-
-  function prev(){
-    startIndex -= pageSize;
-    if (startIndex < 0){
-      const activeCards = getActiveCards();
-      // go to last “page”
-      const remainder = activeCards.length % pageSize;
-      startIndex = remainder === 0 ? activeCards.length - pageSize : activeCards.length - remainder;
-    }
-    showWindow();
-  }
-
-  function setActive(tag){
-    activeTag = tag;
-    startIndex = 0;
-    buttons.forEach(b => b.setAttribute('aria-pressed', (b.dataset.tag === tag).toString()));
-    showWindow();
-  }
-
-  function startTimer(){
-    stopTimer();
-    timer = setInterval(() => {
-      if (!isPaused) next();
-    }, intervalMs);
-  }
-
-  function stopTimer(){
-    if (timer) clearInterval(timer);
-    timer = null;
-  }
-
-  // Wire filter buttons
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => setActive(btn.dataset.tag));
-  });
-
-  // Controls
-  nextBtn.addEventListener('click', () => { isPaused = true; pauseBtn.textContent = 'Resume'; next(); });
-  prevBtn.addEventListener('click', () => { isPaused = true; pauseBtn.textContent = 'Resume'; prev(); });
-
-  pauseBtn.addEventListener('click', () => {
-    isPaused = !isPaused;
-    pauseBtn.textContent = isPaused ? 'Resume' : 'Pause';
-  });
-
-  // Pause on hover (so it doesn’t rotate while reading)
-  const cardsContainer = document.getElementById('cards');
-  cardsContainer.addEventListener('mouseenter', () => { isPaused = true; pauseBtn.textContent = 'Resume'; });
-  cardsContainer.addEventListener('mouseleave', () => { isPaused = false; pauseBtn.textContent = 'Pause'; });
-
-  // Init
-  setActive('All');
-  startTimer();
-})();
-</script>
-    <section class="impact-grid" id="ImpactGrid" style="margin-top:18px">
-      <section class="card" style="margin-top:14px">
-  <div class="sectionTitle" style="margin:0 0 10px">
-    <h2 style="margin:0">Impact showcase</h2>
-    <div class="impact-rotator__btns">
-      <button class="btn secondary" id="showPrev" type="button">Prev</button>
-      <button class="btn secondary" id="showNext" type="button">Next</button>
-      <button class="btn secondary" id="showPause" type="button">Pause</button>
-    </div>
-  </div>
-
-  <p class="small" id="showStatus" style="margin-top:6px">Showing 1 of 8</p>
-
-  <div class="device device--ipad" aria-label="Impact tiles rotating in device frame">
-    <div class="device__screen">
-      <div class="tileShow" id="tileShow">
-        <!-- JS injects tile content here -->
-      </div>
-    </div>
-    <div class="device__camera"></div>
-  </div>
-</section>
-  <!-- 8 curated tiles (bigger + more visual impact) -->
-
-  <article class="impact-card" data-tags="Ops,Governance,Measurement">
-    <div class="impact-top">
-      <h3>KPI Operating System (multi-LOB)</h3>
-      <div class="impact-proof">
-        <a href="case-studies.html#kpi-os">Proof →</a>
-      </div>
-    </div>
-    <p>Standardized KPI definitions + QA + operating rhythm so leadership forums focus on decisions, not metric debates.</p>
-    <div class="badges">
-      <span class="chip static">Ops</span><span class="chip static">Governance</span><span class="chip static">Measurement</span>
-    </div>
-  </article>
-
-  <article class="impact-card" data-tags="Ops,Measurement">
-    <div class="impact-top">
-      <h3>Spend → revenue linkage (finance-grade)</h3>
-      <div class="impact-proof">
-        <a href="case-studies.html#spend-revenue">Proof →</a>
-      </div>
-    </div>
-    <p>Connected expense and performance to revenue views to enable credible ROI conversations and investment allocation.</p>
-    <div class="badges">
-      <span class="chip static">Ops</span><span class="chip static">Measurement</span>
-    </div>
-  </article>
-
-  <article class="impact-card" data-tags="Pipeline,Growth,Measurement">
-    <div class="impact-top">
-      <h3>Funnel & lifecycle standardization (Marketing ↔ Sales)</h3>
-      <div class="impact-proof">
-        <a href="case-studies.html#pipeline">Proof →</a>
-      </div>
-    </div>
-    <p>Defined lifecycle stages and conversion metrics to create a single funnel truth and improve planning inputs.</p>
-    <div class="badges">
-      <span class="chip static">Pipeline</span><span class="chip static">Growth</span><span class="chip static">Measurement</span>
-    </div>
-  </article>
-
-  <article class="impact-card" data-tags="Journey,Growth,Measurement">
-    <div class="impact-top">
-      <h3>Journey measurement & prioritization</h3>
-      <div class="impact-proof">
-        <a href="case-studies.html#journey">Proof →</a>
-      </div>
-    </div>
-    <p>Prioritized journeys and defined stage KPIs to focus optimization on the highest-leverage customer paths.</p>
-    <div class="badges">
-      <span class="chip static">Journey</span><span class="chip static">Growth</span><span class="chip static">Measurement</span>
-    </div>
-  </article>
-
-  <article class="impact-card" data-tags="AI,Ops,Adoption">
-    <div class="impact-top">
-      <h3>MIA: Marketing Intelligence Assistant</h3>
-      <div class="impact-proof">
-        <a href="ai.html#mia">Proof →</a>
-      </div>
-    </div>
-    <p>Governed, role-based copilot with citations + no-inference rules to scale onboarding and self-serve intelligence.</p>
-    <div class="badges">
-      <span class="chip static">AI</span><span class="chip static">Ops</span><span class="chip static">Adoption</span>
-    </div>
-  </article>
-
-  <article class="impact-card" data-tags="AI,Measurement,Adoption">
-    <div class="impact-top">
-      <h3>MMM Copilot: learning + decision support</h3>
-      <div class="impact-proof">
-        <a href="ai.html#mmm">Proof →</a>
-      </div>
-    </div>
-    <p>Role- and scenario-based MMM enablement for channel owners and revenue marketers—always-on decision support.</p>
-    <div class="badges">
-      <span class="chip static">AI</span><span class="chip static">Measurement</span><span class="chip static">Adoption</span>
-    </div>
-  </article>
-
-  <article class="impact-card" data-tags="Ops,Governance">
-    <div class="impact-top">
-      <h3>Executive reporting risk reduction</h3>
-      <div class="impact-proof">
-        <a href="playbooks.html">Playbook →</a>
-      </div>
-    </div>
-    <p>Reduced “spreadsheet surprises” via locked logic, QA steps, and governance that protects credibility in exec forums.</p>
-    <div class="badges">
-      <span class="chip static">Ops</span><span class="chip static">Governance</span>
-    </div>
-  </article>
-
-  <article class="impact-card" data-tags="AI,Adoption">
-    <div class="impact-top">
-      <h3>AI adoption operating model</h3>
-      <div class="impact-proof">
-        <a href="playbooks.html">Playbook →</a>
-      </div>
-    </div>
-    <p>Scaled adoption through training cohorts, ambassadors, office hours, and internal comms—built to stick.</p>
-    <div class="badges">
-      <span class="chip static">AI</span><span class="chip static">Adoption</span>
-    </div>
-  </article>
-</section>
-
- <script>
-(function(){
-  const filterBar = document.getElementById('filters');
-  const buttons = Array.from(filterBar.querySelectorAll('button[data-tag]'));
-  const allCards = Array.from(document.querySelectorAll('#cards .impact-card, #cards .card'));
-
-  // Controls
-  const statusEl = document.getElementById('impactStatus');
-  const prevBtn = document.getElementById('impactPrev');
-  const nextBtn = document.getElementById('impactNext');
-  const pauseBtn = document.getElementById('impactPause');
-
-  // Settings
-  const pageSize = 6;
-  const intervalMs = 6000;
-
-  let activeTag = 'All';
-  let startIndex = 0;
-  let timer = null;
-  let isPaused = false;
-
-  // Cards that match the current filter
-  function getActiveCards(){
-    if (activeTag === 'All') return allCards;
-    return allCards.filter(c => {
-      const tags = (c.getAttribute('data-tags') || '').split(',').map(s => s.trim());
-      return tags.includes(activeTag);
-    });
-  }
-
-  function hideAll(){
-    allCards.forEach(c => c.style.display = 'none');
-  }
-
-  function showWindow(){
-    const activeCards = getActiveCards();
-    hideAll();
-
-    if (activeCards.length === 0){
-      statusEl.textContent = 'No items for this filter';
-      return;
-    }
-
-    // Wrap startIndex if needed
-    if (startIndex >= activeCards.length) startIndex = 0;
-    if (startIndex < 0) startIndex = Math.max(0, activeCards.length - (activeCards.length % pageSize || pageSize));
-
-    const endIndex = Math.min(startIndex + pageSize, activeCards.length);
-    for (let i = startIndex; i < endIndex; i++){
-      activeCards[i].style.display = '';
-    }
-
-    statusEl.textContent = `Showing ${startIndex + 1}–${endIndex} of ${activeCards.length}`;
-  }
-
-  function next(){
-    startIndex += pageSize;
-    const activeCards = getActiveCards();
-    if (startIndex >= activeCards.length) startIndex = 0;
-    showWindow();
-  }
-
-  function prev(){
-    startIndex -= pageSize;
-    if (startIndex < 0){
-      const activeCards = getActiveCards();
-      // go to last “page”
-      const remainder = activeCards.length % pageSize;
-      startIndex = remainder === 0 ? activeCards.length - pageSize : activeCards.length - remainder;
-    }
-    showWindow();
-  }
-
-  function setActive(tag){
-    activeTag = tag;
-    startIndex = 0;
-    buttons.forEach(b => b.setAttribute('aria-pressed', (b.dataset.tag === tag).toString()));
-    showWindow();
-  }
-
-  function startTimer(){
-    stopTimer();
-    timer = setInterval(() => {
-      if (!isPaused) next();
-    }, intervalMs);
-  }
-
-  function stopTimer(){
-    if (timer) clearInterval(timer);
-    timer = null;
-  }
-
-  // Wire filter buttons
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => setActive(btn.dataset.tag));
-  });
-
-  // Controls
-  nextBtn.addEventListener('click', () => { isPaused = true; pauseBtn.textContent = 'Resume'; next(); });
-  prevBtn.addEventListener('click', () => { isPaused = true; pauseBtn.textContent = 'Resume'; prev(); });
-
-  pauseBtn.addEventListener('click', () => {
-    isPaused = !isPaused;
-    pauseBtn.textContent = isPaused ? 'Resume' : 'Pause';
-  });
-
-  // Pause on hover (so it doesn’t rotate while reading)
-  const cardsContainer = document.getElementById('cards');
-  cardsContainer.addEventListener('mouseenter', () => { isPaused = true; pauseBtn.textContent = 'Resume'; });
-  cardsContainer.addEventListener('mouseleave', () => { isPaused = false; pauseBtn.textContent = 'Pause'; });
-
-  // Init
-  setActive('All');
-  startTimer();
-})();
-</script>
-    <script>
-(function(){
-  const items = [
-    {
-      title: "KPI Operating System (multi-LOB)",
-      desc: "Standardized KPI definitions + QA + operating rhythm so leadership forums focus on decisions, not metric debates.",
-      tags: ["Ops","Governance","Measurement"],
-      link: "case-studies.html#kpi-os"
-    },
-    {
-      title: "Spend → revenue linkage (finance-grade)",
-      desc: "Connected expense and performance to revenue views to enable credible ROI conversations and investment allocation.",
-      tags: ["Ops","Measurement"],
-      link: "case-studies.html#spend-revenue"
-    },
-    {
-      title: "Funnel & lifecycle standardization (Marketing ↔ Sales)",
-      desc: "Defined lifecycle stages and conversion metrics to create a single funnel truth and improve planning inputs.",
-      tags: ["Pipeline","Growth","Measurement"],
-      link: "case-studies.html#pipeline"
-    },
-    {
-      title: "Journey measurement & prioritization",
-      desc: "Prioritized journeys and defined stage KPIs to focus optimization on the highest-leverage customer paths.",
-      tags: ["Journey","Growth","Measurement"],
-      link: "case-studies.html#journey"
-    },
-    {
-      title: "MIA: Marketing Intelligence Assistant",
-      desc: "Governed, role-based copilot with citations + no-inference rules to scale onboarding and self-serve intelligence.",
-      tags: ["AI","Ops","Adoption"],
-      link: "ai.html#mia"
-    },
-    {
-      title: "MMM Copilot: learning + decision support",
-      desc: "Role- and scenario-based MMM enablement for channel owners and revenue marketers—always-on decision support.",
-      tags: ["AI","Measurement","Adoption"],
-      link: "ai.html#mmm"
-    },
-    {
-      title: "Executive reporting risk reduction",
-      desc: "Reduced “spreadsheet surprises” via locked logic, QA steps, and governance that protects credibility in exec forums.",
-      tags: ["Ops","Governance"],
-      link: "playbooks.html"
-    },
-    {
-      title: "AI adoption operating model",
-      desc: "Scaled adoption through training cohorts, ambassadors, office hours, and internal comms—built to stick.",
-      tags: ["AI","Adoption"],
-      link: "playbooks.html"
-    }
-  ];
-
-  const el = document.getElementById("tileShow");
-  const status = document.getElementById("showStatus");
-  const prev = document.getElementById("showPrev");
-  const next = document.getElementById("showNext");
-  const pause = document.getElementById("showPause");
-
-  let idx = 0;
-  let paused = false;
-  let timer = null;
-
-  function render(){
-    const it = items[idx];
-    el.innerHTML = `
-      <div class="tileShow__top">
+    <!-- BIG centered showcase -->
+    <section class="card showcase-card" style="margin-top:16px">
+      <div class="showcase-head">
         <div>
-          <h3 class="tileShow__title">${it.title}</h3>
+          <h2 style="margin:0">Impact showcase</h2>
+          <p class="small" id="showStatus" style="margin:8px 0 0">Showing 1 of 8</p>
         </div>
-        <a class="tileShow__cta" href="${it.link}">Proof →</a>
+
+        <div class="impact-rotator__btns">
+          <button class="btn secondary" id="showPrev" type="button">Prev</button>
+          <button class="btn secondary" id="showNext" type="button">Next</button>
+          <button class="btn secondary" id="showPause" type="button">Pause</button>
+        </div>
       </div>
-      <div class="tileShow__desc">${it.desc}</div>
-      <div class="tileShow__tags">
-        ${it.tags.map(t => `<span class="chip static">${t}</span>`).join("")}
+
+      <div class="device device--ipad device--big" aria-label="Impact tiles rotating in device frame">
+        <div class="device__screen">
+          <div class="tileShow tileShow--big" id="tileShow"></div>
+        </div>
+        <div class="device__camera"></div>
       </div>
-    `;
-    el.classList.remove("tileFadeIn");
-    void el.offsetWidth; // restart animation
-    el.classList.add("tileFadeIn");
-    status.textContent = `Showing ${idx+1} of ${items.length}`;
-  }
 
-  function goNext(){
-    idx = (idx + 1) % items.length;
-    render();
-  }
-  function goPrev(){
-    idx = (idx - 1 + items.length) % items.length;
-    render();
-  }
+      <div class="btnrow" style="margin-top:16px">
+        <a class="btn secondary" href="case-studies.html">See full case studies →</a>
+        <a class="btn secondary" href="playbooks.html">See playbooks →</a>
+        <a class="btn secondary" href="ai.html">AI work →</a>
+      </div>
+    </section>
 
-  function start(){
-    stop();
-    timer = setInterval(() => { if (!paused) goNext(); }, 5000);
-  }
-  function stop(){
-    if (timer) clearInterval(timer);
-    timer = null;
-  }
+    <script>
+      (function(){
+        // All items (each has tags so filters can change what's rotating)
+        const items = [
+          {
+            title: "KPI Operating System (multi-LOB)",
+            desc: "Standardized KPI definitions + QA + operating rhythm so leadership forums focus on decisions, not metric debates.",
+            tags: ["Ops","Governance","Measurement"],
+            link: "case-studies.html#kpi-os"
+          },
+          {
+            title: "Spend → revenue linkage (finance-grade)",
+            desc: "Connected expense and performance to revenue views to enable credible ROI conversations and investment allocation.",
+            tags: ["Ops","Measurement"],
+            link: "case-studies.html#spend-revenue"
+          },
+          {
+            title: "Funnel & lifecycle standardization (Marketing ↔ Sales)",
+            desc: "Defined lifecycle stages and conversion metrics to create a single funnel truth and improve planning inputs.",
+            tags: ["Ops","Measurement"],
+            link: "case-studies.html#pipeline"
+          },
+          {
+            title: "Journey measurement & prioritization",
+            desc: "Prioritized journeys and defined stage KPIs to focus optimization on the highest-leverage customer paths.",
+            tags: ["Journey","Measurement"],
+            link: "case-studies.html#journey"
+          },
+          {
+            title: "MIA: Marketing Intelligence Assistant",
+            desc: "Governed, role-based copilot with citations + no-inference rules to scale onboarding and self-serve intelligence.",
+            tags: ["AI","Ops","Governance"],
+            link: "ai.html#mia"
+          },
+          {
+            title: "MMM Copilot: learning + decision support",
+            desc: "Role- and scenario-based MMM enablement for channel owners and revenue marketers—always-on decision support.",
+            tags: ["AI","Measurement"],
+            link: "ai.html#mmm"
+          },
+          {
+            title: "Executive reporting risk reduction",
+            desc: "Reduced “spreadsheet surprises” via locked logic, QA steps, and governance that protects credibility in exec forums.",
+            tags: ["Ops","Governance"],
+            link: "playbooks.html"
+          },
+          {
+            title: "AI adoption operating model",
+            desc: "Scaled adoption through training cohorts, ambassadors, office hours, and internal comms—built to stick.",
+            tags: ["AI","Ops"],
+            link: "playbooks.html"
+          }
+        ];
 
-  next.addEventListener("click", () => { paused = true; pause.textContent = "Resume"; goNext(); });
-  prev.addEventListener("click", () => { paused = true; pause.textContent = "Resume"; goPrev(); });
-  pause.addEventListener("click", () => {
-    paused = !paused;
-    pause.textContent = paused ? "Resume" : "Pause";
-  });
+        const el = document.getElementById("tileShow");
+        const status = document.getElementById("showStatus");
+        const prev = document.getElementById("showPrev");
+        const next = document.getElementById("showNext");
+        const pause = document.getElementById("showPause");
 
-  // pause on hover to read
-  el.addEventListener("mouseenter", () => { paused = true; pause.textContent = "Resume"; });
-  el.addEventListener("mouseleave", () => { paused = false; pause.textContent = "Pause"; });
+        // Filters
+        const filterBar = document.getElementById('filters');
+        const filterBtns = Array.from(filterBar.querySelectorAll('button[data-tag]'));
+        let activeTag = "All";
 
-  render();
-  start();
-})();
-</script>
+        let idx = 0;
+        let paused = false;
+        let timer = null;
+
+        function getActiveList(){
+          if (activeTag === "All") return items;
+          return items.filter(i => i.tags.includes(activeTag));
+        }
+
+        function render(){
+          const list = getActiveList();
+          if (list.length === 0){
+            el.innerHTML = `<div class="tileShow__desc">No items for this filter yet.</div>`;
+            status.textContent = `No items`;
+            return;
+          }
+
+          if (idx >= list.length) idx = 0;
+          if (idx < 0) idx = list.length - 1;
+
+          const it = list[idx];
+
+          el.innerHTML = `
+            <div class="tileShow__top">
+              <div>
+                <h3 class="tileShow__title">${it.title}</h3>
+              </div>
+              <a class="tileShow__cta" href="${it.link}">Proof →</a>
+            </div>
+
+            <div class="tileShow__desc">${it.desc}</div>
+
+            <div class="tileShow__tags">
+              ${it.tags.map(t => `<span class="chip static">${t}</span>`).join("")}
+            </div>
+          `;
+
+          el.classList.remove("tileFadeIn");
+          void el.offsetWidth;
+          el.classList.add("tileFadeIn");
+
+          status.textContent = `Showing ${idx + 1} of ${list.length} (${activeTag})`;
+        }
+
+        function goNext(){ idx += 1; render(); }
+        function goPrev(){ idx -= 1; render(); }
+
+        function start(){
+          stop();
+          timer = setInterval(() => { if (!paused) goNext(); }, 5000);
+        }
+        function stop(){
+          if (timer) clearInterval(timer);
+          timer = null;
+        }
+
+        next.addEventListener("click", () => { paused = true; pause.textContent = "Resume"; goNext(); });
+        prev.addEventListener("click", () => { paused = true; pause.textContent = "Resume"; goPrev(); });
+        pause.addEventListener("click", () => {
+          paused = !paused;
+          pause.textContent = paused ? "Resume" : "Pause";
+        });
+
+        // pause on hover to read
+        el.addEventListener("mouseenter", () => { paused = true; pause.textContent = "Resume"; });
+        el.addEventListener("mouseleave", () => { paused = false; pause.textContent = "Pause"; });
+
+        // Filter controls update what rotates
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            activeTag = btn.dataset.tag;
+            idx = 0;
+            filterBtns.forEach(b => b.setAttribute('aria-pressed', (b.dataset.tag === activeTag).toString()));
+            render();
+          });
+        });
+
+        render();
+        start();
+      })();
+    </script>
+
   </main>
 
-  <footer class="footer">
-    @Jessie Zhang
-  </footer>
+  <footer class="footer">© Jessie Zhang</footer>
 </body>
 </html>
-
-
