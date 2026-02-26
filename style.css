@@ -520,7 +520,7 @@ body.case::after{
   width: auto;
   max-width: 110px;    /* prevents very wide logos from dominating */
   object-fit: contain;
-  filter: grayscale(0.35) contrast(1.05) opacity(.29);
+  filter: grayscale(0.35) contrast(1.05) opacity(.9);
 }
 .logo-item:hover img{
   filter: none;
