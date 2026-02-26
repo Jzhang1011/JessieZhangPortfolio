@@ -1295,3 +1295,26 @@ body.madison{
 }
 /* Hide old tiles when using the showcase */
 #impactGrid{ display: none; }
+/* Impact showcase hero sizing */
+.showcase-card{
+  padding: 26px;
+}
+
+.showcase-card .device{
+  max-width: 1180px;  /* bigger than before */
+}
+
+.showcase-card .device__screen{
+  border-radius: 34px;
+  padding: 22px;      /* thicker bezel looks premium */
+}
+
+.showcase-card .tileShow{
+  min-height: 360px;  /* more breathing room */
+  padding: 28px;
+}
+
+@media (max-width: 820px){
+  .showcase-card .device{ max-width: 100%; }
+  .showcase-card .tileShow{ min-height: 300px; padding: 20px; }
+}
