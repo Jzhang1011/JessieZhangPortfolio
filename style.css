@@ -1175,3 +1175,121 @@ body.madison{
   .card:hover{ transform:none; transition:none; }
   .logo-track{ animation: none; }
 }
+/* ===== Device showcase (iPad) ===== */
+.device{
+  position: relative;
+  margin-top: 14px;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.device__screen{
+  position: relative;
+  border-radius: 28px;
+  padding: 18px;
+  background: #0b0f18;
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 30px 80px rgba(0,0,0,.18);
+  overflow: hidden;
+}
+
+.device__screen::before{
+  content:"";
+  position:absolute;
+  inset: 10px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.10);
+  pointer-events:none;
+}
+
+.device__screen::after{
+  content:"";
+  position:absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: radial-gradient(700px 260px at 20% 10%, rgba(255,255,255,.14), transparent 60%);
+  mix-blend-mode: screen;
+  opacity: .7;
+  pointer-events:none;
+}
+
+.device__camera{
+  position:absolute;
+  left: 50%;
+  top: 10px;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.22);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.22);
+}
+
+/* ===== Rotating tile inside screen ===== */
+.tileShow{
+  position: relative;
+  border-radius: 18px;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(255,255,255,.10);
+  padding: 22px;
+  min-height: 280px;
+  box-shadow: 0 18px 46px rgba(0,0,0,.10);
+}
+
+.tileShow__top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap: 12px;
+}
+
+.tileShow__title{
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: rgba(11,15,24,.96);
+}
+
+.tileShow__desc{
+  margin-top: 10px;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: rgba(17,24,39,.78);
+  max-width: 70ch;
+}
+
+.tileShow__tags{
+  margin-top: 14px;
+  display:flex;
+  flex-wrap:wrap;
+  gap: 8px;
+}
+
+.tileShow__cta{
+  display:inline-flex;
+  align-items:center;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(141,89,233,.12);
+  border: 1px solid rgba(141,89,233,.20);
+  color: rgba(11,15,24,.92);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-decoration:none;
+}
+.tileShow__cta:hover{ background: rgba(141,89,233,.18); text-decoration:none; }
+
+/* animation */
+.tileFadeIn{ animation: tileFade .35s ease both; }
+@keyframes tileFade{
+  from{ opacity:0; transform: translateY(8px); }
+  to{ opacity:1; transform: translateY(0); }
+}
+
+@media (max-width: 820px){
+  .device__screen{ border-radius: 22px; }
+  .tileShow{ padding: 18px; min-height: 260px; }
+}
