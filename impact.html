@@ -266,28 +266,122 @@
   </article>
 </section>
 
-    <script>
-      (function(){
-        const filterBar = document.getElementById('filters');
-        const buttons = Array.from(filterBar.querySelectorAll('button[data-tag]'));
-        const cards = Array.from(document.querySelectorAll('#cards .card'));
+ <script>
+(function(){
+  const filterBar = document.getElementById('filters');
+  const buttons = Array.from(filterBar.querySelectorAll('button[data-tag]'));
+  const allCards = Array.from(document.querySelectorAll('#cards .impact-card, #cards .card'));
 
-        function setActive(tag){
-          buttons.forEach(b => b.setAttribute('aria-pressed', (b.dataset.tag === tag).toString()));
-          cards.forEach(c => {
-            const tags = (c.getAttribute('data-tags') || '').split(',').map(s => s.trim());
-            const show = (tag === 'All') || tags.includes(tag);
-            c.style.display = show ? '' : 'none';
-          });
-        }
+  // Controls
+  const statusEl = document.getElementById('impactStatus');
+  const prevBtn = document.getElementById('impactPrev');
+  const nextBtn = document.getElementById('impactNext');
+  const pauseBtn = document.getElementById('impactPause');
 
-        buttons.forEach(btn => {
-          btn.addEventListener('click', () => setActive(btn.dataset.tag));
-        });
+  // Settings
+  const pageSize = 6;
+  const intervalMs = 6000;
 
-        setActive('All');
-      })();
-    </script>
+  let activeTag = 'All';
+  let startIndex = 0;
+  let timer = null;
+  let isPaused = false;
+
+  // Cards that match the current filter
+  function getActiveCards(){
+    if (activeTag === 'All') return allCards;
+    return allCards.filter(c => {
+      const tags = (c.getAttribute('data-tags') || '').split(',').map(s => s.trim());
+      return tags.includes(activeTag);
+    });
+  }
+
+  function hideAll(){
+    allCards.forEach(c => c.style.display = 'none');
+  }
+
+  function showWindow(){
+    const activeCards = getActiveCards();
+    hideAll();
+
+    if (activeCards.length === 0){
+      statusEl.textContent = 'No items for this filter';
+      return;
+    }
+
+    // Wrap startIndex if needed
+    if (startIndex >= activeCards.length) startIndex = 0;
+    if (startIndex < 0) startIndex = Math.max(0, activeCards.length - (activeCards.length % pageSize || pageSize));
+
+    const endIndex = Math.min(startIndex + pageSize, activeCards.length);
+    for (let i = startIndex; i < endIndex; i++){
+      activeCards[i].style.display = '';
+    }
+
+    statusEl.textContent = `Showing ${startIndex + 1}–${endIndex} of ${activeCards.length}`;
+  }
+
+  function next(){
+    startIndex += pageSize;
+    const activeCards = getActiveCards();
+    if (startIndex >= activeCards.length) startIndex = 0;
+    showWindow();
+  }
+
+  function prev(){
+    startIndex -= pageSize;
+    if (startIndex < 0){
+      const activeCards = getActiveCards();
+      // go to last “page”
+      const remainder = activeCards.length % pageSize;
+      startIndex = remainder === 0 ? activeCards.length - pageSize : activeCards.length - remainder;
+    }
+    showWindow();
+  }
+
+  function setActive(tag){
+    activeTag = tag;
+    startIndex = 0;
+    buttons.forEach(b => b.setAttribute('aria-pressed', (b.dataset.tag === tag).toString()));
+    showWindow();
+  }
+
+  function startTimer(){
+    stopTimer();
+    timer = setInterval(() => {
+      if (!isPaused) next();
+    }, intervalMs);
+  }
+
+  function stopTimer(){
+    if (timer) clearInterval(timer);
+    timer = null;
+  }
+
+  // Wire filter buttons
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => setActive(btn.dataset.tag));
+  });
+
+  // Controls
+  nextBtn.addEventListener('click', () => { isPaused = true; pauseBtn.textContent = 'Resume'; next(); });
+  prevBtn.addEventListener('click', () => { isPaused = true; pauseBtn.textContent = 'Resume'; prev(); });
+
+  pauseBtn.addEventListener('click', () => {
+    isPaused = !isPaused;
+    pauseBtn.textContent = isPaused ? 'Resume' : 'Pause';
+  });
+
+  // Pause on hover (so it doesn’t rotate while reading)
+  const cardsContainer = document.getElementById('cards');
+  cardsContainer.addEventListener('mouseenter', () => { isPaused = true; pauseBtn.textContent = 'Resume'; });
+  cardsContainer.addEventListener('mouseleave', () => { isPaused = false; pauseBtn.textContent = 'Pause'; });
+
+  // Init
+  setActive('All');
+  startTimer();
+})();
+</script>
   </main>
 
   <footer class="footer">
