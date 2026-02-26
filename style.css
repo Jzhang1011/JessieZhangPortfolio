@@ -1093,3 +1093,27 @@ h3{ letter-spacing: .08em; }
   gap: 10px;
   flex-wrap: wrap;
 }
+/* Two-column section blocks (AI page) */
+.two-col{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.two-col__card{
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(17,24,39,.10);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.06);
+}
+
+.two-col__card h3{
+  margin-top: 0;
+}
+
+/* mobile stacks */
+@media (max-width: 900px){
+  .two-col{ grid-template-columns: 1fr; }
+}
