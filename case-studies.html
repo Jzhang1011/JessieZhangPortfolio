@@ -3,12 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Case Studies | Portfolio</title>
+  <title>Case Studies | Jessie Zhang</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..900&family=Inter:wght@300..900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body class="case">
   <header class="topbar">
     <nav class="nav">
@@ -28,9 +31,11 @@
   </header>
 
   <main class="container">
+
+    <!-- Page header -->
     <section class="card">
       <h1 style="margin-top:0">Case Studies</h1>
-      <p class="small"></p>
+      <p class="small">Each case rotates through: Context → Next. The right panel shows an illustrative dashboard/artifact.</p>
       <div class="badges">
         <span class="chip static">Context</span>
         <span class="chip static">What was broken</span>
@@ -42,87 +47,162 @@
       </div>
     </section>
 
-    <section id="kpi-os" class="card">
-      <h2>KPI Operating System for Multi-LOB Marketing</h2>
-      <p class="small">Angle: Ops + Intelligence • Standardization + trust</p>
+    <!-- ===================== KPI OS ===================== -->
+    <section id="kpi-os" class="card" style="margin-top:14px">
+      <div class="caseTitleRow">
+        <div>
+          <h2 style="margin:0">KPI Operating System for Multi-LOB Marketing</h2>
+          <p class="small" style="margin:8px 0 0">Angle: Ops + Intelligence • Standardization + trust</p>
+        </div>
+      </div>
       <hr/>
-      <h3>Context</h3>
-      <p class="small">Multi-LOB reporting required consistent KPIs and repeatable executive readouts.</p>
-      <h3>What was broken</h3>
-      <ul class="list"><li>Inconsistent definitions and manual processes created trust and accuracy risk.</li></ul>
-      <h3>What I did</h3>
-      <ul class="list"><li>Established KPI definitions, governance, QA steps, and a monthly operating rhythm.</li></ul>
-      <h3>What shipped</h3>
-      <ul class="list"><li>KPI dictionary + governance, dashboard index, MOR template.</li></ul>
-      <h3>Adoption</h3>
-      <ul class="list"><li>Embedded into rhythms; enabled stakeholders via documentation and support.</li></ul>
-      <h3>Outcomes</h3>
-      <ul class="list"><li>Improved exec confidence and reduced reporting risk.</li></ul>
-      <h3>Next</h3>
-      <ul class="list"><li>Expand automation and metric health monitoring.</li></ul>
+
+      <div class="case-layout">
+        <!-- LEFT: phone rotator -->
+        <div class="case-left">
+          <div class="case-rotatorHead">
+            <div class="small" id="csStatus-kpi">Context (1/7)</div>
+            <div class="impact-rotator__btns">
+              <button class="btn secondary" type="button" data-cs-prev="kpi">Prev</button>
+              <button class="btn secondary" type="button" data-cs-next="kpi">Next</button>
+              <button class="btn secondary" type="button" data-cs-pause="kpi">Pause</button>
+            </div>
+          </div>
+
+          <div class="phone-mock" aria-label="Case content in phone frame">
+            <div class="phone-screen">
+              <div class="csCard" id="csCard-kpi"></div>
+            </div>
+            <div class="phone-speaker"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT: dashboard image -->
+        <div class="case-right">
+          <a class="dashShot" href="assets/dashboards/kpi-dashboard.png" target="_blank" rel="noopener">
+            <img src="assets/dashboards/kpi-dashboard.png" alt="KPI dashboard example" loading="lazy">
+            <div class="dashCap">KPI dashboard example (click to zoom)</div>
+          </a>
+        </div>
+      </div>
     </section>
 
-    <section id="pipeline" class="card">
-      <h2>Pipeline & Funnel Measurement Standardization</h2>
-      <p class="small">Angle: Growth + Rev alignment • Lifecycle clarity</p>
+    <!-- ===================== PIPELINE ===================== -->
+    <section id="pipeline" class="card" style="margin-top:14px">
+      <div class="caseTitleRow">
+        <div>
+          <h2 style="margin:0">Pipeline & Funnel Measurement Standardization</h2>
+          <p class="small" style="margin:8px 0 0">Angle: Growth + Rev alignment • Lifecycle clarity</p>
+        </div>
+      </div>
       <hr/>
-      <h3>Context</h3>
-      <p class="small">Marketing and Sales needed a shared funnel truth for performance and planning.</p>
-      <h3>What was broken</h3>
-      <ul class="list"><li>Ambiguous lifecycle definitions and inconsistent conversion views.</li></ul>
-      <h3>What I did</h3>
-      <ul class="list"><li>Defined stages, conversion metrics, and visibility that supports coverage discussions.</li></ul>
-      <h3>What shipped</h3>
-      <ul class="list"><li>Lifecycle map, funnel dashboard, coverage targets V1.</li></ul>
-      <h3>Adoption</h3>
-      <ul class="list"><li>Aligned stakeholders on definitions and usage in operating rhythms.</li></ul>
-      <h3>Outcomes</h3>
-      <ul class="list"><li>Clearer accountability and improved planning inputs.</li></ul>
-      <h3>Next</h3>
-      <ul class="list"><li>Instrument buying-group and channel-level diagnostics.</li></ul>
+
+      <div class="case-layout">
+        <div class="case-left">
+          <div class="case-rotatorHead">
+            <div class="small" id="csStatus-pipeline">Context (1/7)</div>
+            <div class="impact-rotator__btns">
+              <button class="btn secondary" type="button" data-cs-prev="pipeline">Prev</button>
+              <button class="btn secondary" type="button" data-cs-next="pipeline">Next</button>
+              <button class="btn secondary" type="button" data-cs-pause="pipeline">Pause</button>
+            </div>
+          </div>
+
+          <div class="phone-mock">
+            <div class="phone-screen">
+              <div class="csCard" id="csCard-pipeline"></div>
+            </div>
+            <div class="phone-speaker"></div>
+          </div>
+        </div>
+
+        <div class="case-right">
+          <a class="dashShot" href="assets/dashboards/pipeline-dashboard.png" target="_blank" rel="noopener">
+            <img src="assets/dashboards/pipeline-dashboard.png" alt="Pipeline dashboard example" loading="lazy">
+            <div class="dashCap">Funnel / lifecycle dashboard (click to zoom)</div>
+          </a>
+        </div>
+      </div>
     </section>
 
-    <section id="spend-revenue" class="card">
-      <h2>Spend → Revenue Linkage (Finance-grade Reporting)</h2>
-      <p class="small">Angle: Ops + Finance alignment • ROI credibility</p>
+    <!-- ===================== SPEND → REVENUE ===================== -->
+    <section id="spend-revenue" class="card" style="margin-top:14px">
+      <div class="caseTitleRow">
+        <div>
+          <h2 style="margin:0">Spend → Revenue Linkage (Finance-grade Reporting)</h2>
+          <p class="small" style="margin:8px 0 0">Angle: Ops + Finance alignment • ROI credibility</p>
+        </div>
+      </div>
       <hr/>
-      <h3>Context</h3>
-      <p class="small">Expense lived outside core performance tools; leaders needed credible connection to outcomes.</p>
-      <h3>What was broken</h3>
-      <ul class="list"><li>Hard to reconcile expense, performance, and revenue across systems.</li></ul>
-      <h3>What I did</h3>
-      <ul class="list"><li>Defined mappings, reconciliation logic, and audit-friendly reporting views.</li></ul>
-      <h3>What shipped</h3>
-      <ul class="list"><li>Spend mappings, linked datasets, ROI views used in readouts.</li></ul>
-      <h3>Adoption</h3>
-      <ul class="list"><li>Enabled stakeholders with documentation and repeatable views.</li></ul>
-      <h3>Outcomes</h3>
-      <ul class="list"><li>Stronger budget allocation discussions grounded in consistent data.</li></ul>
-      <h3>Next</h3>
-      <ul class="list"><li>Expand to journey-level unit economics and incrementality.</li></ul>
+
+      <div class="case-layout">
+        <div class="case-left">
+          <div class="case-rotatorHead">
+            <div class="small" id="csStatus-spend">Context (1/7)</div>
+            <div class="impact-rotator__btns">
+              <button class="btn secondary" type="button" data-cs-prev="spend">Prev</button>
+              <button class="btn secondary" type="button" data-cs-next="spend">Next</button>
+              <button class="btn secondary" type="button" data-cs-pause="spend">Pause</button>
+            </div>
+          </div>
+
+          <div class="phone-mock">
+            <div class="phone-screen">
+              <div class="csCard" id="csCard-spend"></div>
+            </div>
+            <div class="phone-speaker"></div>
+          </div>
+        </div>
+
+        <div class="case-right">
+          <a class="dashShot" href="assets/dashboards/spend-revenue.png" target="_blank" rel="noopener">
+            <img src="assets/dashboards/spend-revenue.png" alt="Spend to revenue dashboard example" loading="lazy">
+            <div class="dashCap">Spend → revenue view (click to zoom)</div>
+          </a>
+        </div>
+      </div>
     </section>
 
-    <section id="journey" class="card">
-      <h2>Customer Journey Measurement Framework</h2>
-      <p class="small">Angle: Growth + Ops • Prioritize and optimize journeys</p>
+    <!-- ===================== JOURNEY ===================== -->
+    <section id="journey" class="card" style="margin-top:14px">
+      <div class="caseTitleRow">
+        <div>
+          <h2 style="margin:0">Customer Journey Measurement Framework</h2>
+          <p class="small" style="margin:8px 0 0">Angle: Growth + Ops • Prioritize and optimize journeys</p>
+        </div>
+      </div>
       <hr/>
-      <h3>Context</h3>
-      <p class="small">Needed a structured way to prioritize journeys and focus optimization effort.</p>
-      <h3>What was broken</h3>
-      <ul class="list"><li>Too many potential journeys; unclear KPI ownership and instrumentation requirements.</li></ul>
-      <h3>What I did</h3>
-      <ul class="list"><li>Built journey KPI mapping, prioritization criteria, and a repeatable optimization loop.</li></ul>
-      <h3>What shipped</h3>
-      <ul class="list"><li>Journey scorecard, KPI tree per stage, instrumentation checklist, test backlog template.</li></ul>
-      <h3>Adoption</h3>
-      <ul class="list"><li>Embedded into planning and readouts to keep focus on highest-leverage journeys.</li></ul>
-      <h3>Outcomes</h3>
-      <ul class="list"><li>Clearer prioritization and faster movement from insight to action.</li></ul>
-      <h3>Next</h3>
-      <ul class="list"><li>Layer in experimentation and incrementality by journey.</li></ul>
+
+      <div class="case-layout">
+        <div class="case-left">
+          <div class="case-rotatorHead">
+            <div class="small" id="csStatus-journey">Context (1/7)</div>
+            <div class="impact-rotator__btns">
+              <button class="btn secondary" type="button" data-cs-prev="journey">Prev</button>
+              <button class="btn secondary" type="button" data-cs-next="journey">Next</button>
+              <button class="btn secondary" type="button" data-cs-pause="journey">Pause</button>
+            </div>
+          </div>
+
+          <div class="phone-mock">
+            <div class="phone-screen">
+              <div class="csCard" id="csCard-journey"></div>
+            </div>
+            <div class="phone-speaker"></div>
+          </div>
+        </div>
+
+        <div class="case-right">
+          <a class="dashShot" href="assets/dashboards/journey-scorecard.png" target="_blank" rel="noopener">
+            <img src="assets/dashboards/journey-scorecard.png" alt="Journey scorecard example" loading="lazy">
+            <div class="dashCap">Journey scorecard / prioritization (click to zoom)</div>
+          </a>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
+    <!-- AI CTA -->
+    <section class="card" style="margin-top:14px">
       <h2>AI work</h2>
       <p class="small">For MIA and MMM Copilot, see the AI page (includes governance + adoption details).</p>
       <div class="btnrow">
@@ -130,12 +210,153 @@
         <a class="btn" href="ai.html#mmm">MMM Copilot Case →</a>
       </div>
     </section>
+
+    <!-- Rotator Script -->
+    <script>
+      (function(){
+        const CASES = {
+          kpi: {
+            statusId: "csStatus-kpi",
+            cardId: "csCard-kpi",
+            tags: ["Ops","Governance","Measurement"],
+            steps: [
+              { label:"Context", body:"Multi-LOB reporting required consistent KPIs and repeatable executive readouts." },
+              { label:"What was broken", body:"Inconsistent definitions and manual processes created trust and accuracy risk." },
+              { label:"What I did", body:"Established KPI definitions, governance, QA steps, and a monthly operating rhythm." },
+              { label:"What shipped", body:"KPI dictionary + governance, dashboard index, MOR template." },
+              { label:"Adoption", body:"Embedded into rhythms; enabled stakeholders via documentation and support." },
+              { label:"Outcomes", body:"Improved exec confidence and reduced reporting risk." },
+              { label:"Next", body:"Expand automation and metric health monitoring." }
+            ],
+            title: "KPI Operating System"
+          },
+
+          pipeline: {
+            statusId: "csStatus-pipeline",
+            cardId: "csCard-pipeline",
+            tags: ["Pipeline","Growth","Measurement"],
+            steps: [
+              { label:"Context", body:"Marketing and Sales needed a shared funnel truth for performance and planning." },
+              { label:"What was broken", body:"Ambiguous lifecycle definitions and inconsistent conversion views." },
+              { label:"What I did", body:"Defined stages, conversion metrics, and visibility that supports coverage discussions." },
+              { label:"What shipped", body:"Lifecycle map, funnel dashboard, coverage targets V1." },
+              { label:"Adoption", body:"Aligned stakeholders on definitions and usage in operating rhythms." },
+              { label:"Outcomes", body:"Clearer accountability and improved planning inputs." },
+              { label:"Next", body:"Instrument buying-group and channel-level diagnostics." }
+            ],
+            title: "Pipeline & Funnel Standardization"
+          },
+
+          spend: {
+            statusId: "csStatus-spend",
+            cardId: "csCard-spend",
+            tags: ["Ops","Finance","Measurement"],
+            steps: [
+              { label:"Context", body:"Expense lived outside core performance tools; leaders needed credible connection to outcomes." },
+              { label:"What was broken", body:"Hard to reconcile expense, performance, and revenue across systems." },
+              { label:"What I did", body:"Defined mappings, reconciliation logic, and audit-friendly reporting views." },
+              { label:"What shipped", body:"Spend mappings, linked datasets, ROI views used in readouts." },
+              { label:"Adoption", body:"Enabled stakeholders with documentation and repeatable views." },
+              { label:"Outcomes", body:"Stronger budget allocation discussions grounded in consistent data." },
+              { label:"Next", body:"Expand to journey-level unit economics and incrementality." }
+            ],
+            title: "Spend → Revenue Linkage"
+          },
+
+          journey: {
+            statusId: "csStatus-journey",
+            cardId: "csCard-journey",
+            tags: ["Journey","Growth","Measurement"],
+            steps: [
+              { label:"Context", body:"Needed a structured way to prioritize journeys and focus optimization effort." },
+              { label:"What was broken", body:"Too many potential journeys; unclear KPI ownership and instrumentation requirements." },
+              { label:"What I did", body:"Built journey KPI mapping, prioritization criteria, and a repeatable optimization loop." },
+              { label:"What shipped", body:"Journey scorecard, KPI tree per stage, instrumentation checklist, test backlog template." },
+              { label:"Adoption", body:"Embedded into planning and readouts to keep focus on highest-leverage journeys." },
+              { label:"Outcomes", body:"Clearer prioritization and faster movement from insight to action." },
+              { label:"Next", body:"Layer in experimentation and incrementality by journey." }
+            ],
+            title: "Journey Measurement Framework"
+          }
+        };
+
+        function mount(key){
+          const cfg = CASES[key];
+          const statusEl = document.getElementById(cfg.statusId);
+          const cardEl = document.getElementById(cfg.cardId);
+
+          if (!statusEl || !cardEl) return;
+
+          let idx = 0;
+          let paused = false;
+          let timer = null;
+
+          function render(){
+            const step = cfg.steps[idx];
+            cardEl.innerHTML = `
+              <div class="csCard__kicker">${step.label}</div>
+              <div class="csCard__title">${cfg.title}</div>
+              <div class="csCard__body">${step.body}</div>
+              <div class="csCard__tags">
+                ${cfg.tags.map(t => `<span class="chip static">${t}</span>`).join("")}
+              </div>
+              <div class="csCard__sig">@Jessie Zhang</div>
+            `;
+            cardEl.classList.remove("csFadeIn");
+            void cardEl.offsetWidth;
+            cardEl.classList.add("csFadeIn");
+            statusEl.textContent = `${step.label} (${idx+1}/${cfg.steps.length})`;
+          }
+
+          function next(){ idx = (idx + 1) % cfg.steps.length; render(); }
+          function prev(){ idx = (idx - 1 + cfg.steps.length) % cfg.steps.length; render(); }
+
+          function start(){
+            stop();
+            timer = setInterval(() => { if (!paused) next(); }, 5200);
+          }
+          function stop(){
+            if (timer) clearInterval(timer);
+            timer = null;
+          }
+
+          document.querySelector(`[data-cs-next="${key}"]`)?.addEventListener("click", () => {
+            paused = true;
+            document.querySelector(`[data-cs-pause="${key}"]`).textContent = "Resume";
+            next();
+          });
+
+          document.querySelector(`[data-cs-prev="${key}"]`)?.addEventListener("click", () => {
+            paused = true;
+            document.querySelector(`[data-cs-pause="${key}"]`).textContent = "Resume";
+            prev();
+          });
+
+          document.querySelector(`[data-cs-pause="${key}"]`)?.addEventListener("click", (e) => {
+            paused = !paused;
+            e.target.textContent = paused ? "Resume" : "Pause";
+          });
+
+          cardEl.addEventListener("mouseenter", () => {
+            paused = true;
+            document.querySelector(`[data-cs-pause="${key}"]`).textContent = "Resume";
+          });
+
+          cardEl.addEventListener("mouseleave", () => {
+            paused = false;
+            document.querySelector(`[data-cs-pause="${key}"]`).textContent = "Pause";
+          });
+
+          render();
+          start();
+        }
+
+        Object.keys(CASES).forEach(mount);
+      })();
+    </script>
+
   </main>
 
-  <footer class="footer">
-   @Jessie Zhang
-  </footer>
+  <footer class="footer">© Jessie Zhang</footer>
 </body>
 </html>
-
-
