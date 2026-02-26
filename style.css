@@ -1156,7 +1156,7 @@ h3{ letter-spacing: .08em; }
 }
 
 .logo-item img{
-  max-height: 20px;   /* smaller logos */
+  max-height: 24px;   /* smaller logos */
   max-width: 100%;
   width: auto;
   height: auto;
