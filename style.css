@@ -1523,3 +1523,65 @@ body.madison{
 @media (max-width: 520px){
   .ipad-screen .tileShow{ padding: 16px; }
 }
+/* ===== iPad screen: make the rotating tile behave like the screen ===== */
+.ipad-screen{
+  background: #f6f7f9;         /* screen background */
+  box-shadow: none;            /* remove extra frame shadow inside */
+}
+
+/* The rotating tile should NOT look like another card */
+.ipad-screen .tileShow{
+  position: absolute;
+  inset: 0;
+  padding: 34px 34px 26px;     /* more top padding like a real UI */
+  border-radius: 0;
+  background: transparent;     /* use ipad-screen bg */
+  border: none;
+  box-shadow: none;
+}
+
+/* Tighten and rebalance content */
+.ipad-screen .tileShow__title{
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 26ch;
+}
+
+.ipad-screen .tileShow__desc{
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 54ch;
+  color: rgba(17,24,39,.72);
+}
+
+/* Keep tags from floating too high */
+.ipad-screen .tileShow__tags{
+  margin-top: 18px;
+}
+
+/* Make the “Proof” pill look like UI button */
+.ipad-screen .tileShow__cta{
+  background: rgba(141,89,233,.14);
+  border: 1px solid rgba(141,89,233,.24);
+  padding: 10px 12px;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+/* Mobile */
+@media (max-width: 520px){
+  .ipad-screen .tileShow{ padding: 18px 16px; }
+  .ipad-screen .tileShow__title{ font-size: 18px; }
+  .ipad-screen .tileShow__desc{ font-size: 14.5px; }
+}
+.ipad-screen::before{
+  content:"";
+  position:absolute;
+  left:0; right:0; top:0;
+  height: 56px;
+  background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,0));
+  border-bottom: 1px solid rgba(17,24,39,.06);
+  pointer-events:none;
+}
