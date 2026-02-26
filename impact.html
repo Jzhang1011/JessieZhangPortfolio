@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Impact | Jessie Zhang</title>
+  <title>Case Studies | Jessie Zhang</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,17 +12,17 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<body class="case">
   <header class="topbar">
     <nav class="nav">
       <div class="brand">
         <div class="name">Jessie Zhang</div>
-        <div class="tag">Impact Library</div>
+        <div class="tag">Case Studies</div>
       </div>
       <div class="links">
         <a href="index.html">Home</a>
-        <a class="active" href="impact.html">Impact</a>
-        <a href="case-studies.html">Case Studies</a>
+        <a href="impact.html">Impact</a>
+        <a class="active" href="case-studies.html">Case Studies</a>
         <a href="playbooks.html">Playbooks</a>
         <a href="ai.html">AI</a>
         <a href="about.html">About</a>
@@ -32,195 +32,266 @@
 
   <main class="container">
 
-    <!-- Header + Filters -->
+    <!-- Page header -->
     <section class="card">
-      <h1 style="margin-top:0">Impact Library</h1>
-      <p class="small">A curated showcase of the systems I build to increase executive trust, decision velocity, and adoption at scale.</p>
+      <h1 style="margin-top:0">Case Studies</h1>
+      <p class="small">A single viewer that rotates through four case studies. Left: phone-style narrative. Right: a static dashboard view.</p>
 
-      <div class="badges" id="filters" aria-label="Filters">
-        <button class="chip" aria-pressed="true" data-tag="All" type="button">All</button>
-        <button class="chip" aria-pressed="false" data-tag="Ops" type="button">Ops</button>
-        <button class="chip" aria-pressed="false" data-tag="Governance" type="button">Governance</button>
-        <button class="chip" aria-pressed="false" data-tag="Measurement" type="button">Measurement</button>
-        <button class="chip" aria-pressed="false" data-tag="Journey" type="button">Journey</button>
-        <button class="chip" aria-pressed="false" data-tag="AI" type="button">AI</button>
+      <div class="badges">
+        <span class="chip static">Context</span>
+        <span class="chip static">What was broken</span>
+        <span class="chip static">What I did</span>
+        <span class="chip static">What shipped</span>
+        <span class="chip static">Adoption</span>
+        <span class="chip static">Outcomes</span>
+        <span class="chip static">Next</span>
       </div>
     </section>
 
-    <!-- BIG centered showcase -->
-    <section class="card showcase-card" style="margin-top:16px">
-      <div class="showcase-head">
+    <!-- Case Viewer -->
+    <section class="card" style="margin-top:14px">
+      <!-- Case tabs + title -->
+      <div class="caseViewerHead">
         <div>
-          <h2 style="margin:0">Impact showcase</h2>
-          <p class="small" id="showStatus" style="margin:8px 0 0">Showing 1 of 8</p>
+          <div class="kicker">Case study</div>
+          <h2 id="caseTitle" style="margin:8px 0 0">—</h2>
+          <p class="small" id="caseAngle" style="margin:8px 0 0">—</p>
         </div>
 
-        <div class="impact-rotator__btns">
-          <button class="btn secondary" id="showPrev" type="button">Prev</button>
-          <button class="btn secondary" id="showNext" type="button">Next</button>
-          <button class="btn secondary" id="showPause" type="button">Pause</button>
+        <div class="caseTabs" id="caseTabs" aria-label="Case study selector">
+          <button class="chip" type="button" aria-pressed="true" data-case="kpi">KPI OS</button>
+          <button class="chip" type="button" aria-pressed="false" data-case="pipeline">Pipeline</button>
+          <button class="chip" type="button" aria-pressed="false" data-case="spend">Spend→Revenue</button>
+          <button class="chip" type="button" aria-pressed="false" data-case="journey">Journey</button>
         </div>
       </div>
 
- <div class="ipad-hands" aria-label="Impact tiles rotating in iPad mockup">
-  <div class="ipad-screen">
-    <div class="tileShow tileShow--big" id="tileShow"></div>
-  </div>
-</div>
-        <div class="device__camera"></div>
-      </div>
+      <hr/>
 
-      <div class="btnrow" style="margin-top:16px">
-        <a class="btn secondary" href="case-studies.html">See full case studies →</a>
-        <a class="btn secondary" href="playbooks.html">See playbooks →</a>
-        <a class="btn secondary" href="ai.html">AI work →</a>
+      <div class="case-layout">
+        <!-- LEFT: phone + step rotator -->
+        <div class="case-left">
+          <div class="case-rotatorHead">
+            <div class="small" id="stepStatus">Context (1/7)</div>
+
+            <div class="impact-rotator__btns">
+              <button class="btn secondary" id="stepPrev" type="button">Prev</button>
+              <button class="btn secondary" id="stepNext" type="button">Next</button>
+              <button class="btn secondary" id="stepPause" type="button">Pause</button>
+            </div>
+          </div>
+
+          <div class="phone-mock" aria-label="Case content in phone frame">
+            <div class="phone-screen">
+              <div class="csCard" id="csCard"></div>
+            </div>
+            <div class="phone-speaker"></div>
+          </div>
+
+          <div class="caseFooterRow">
+            <a class="btn secondary" id="proofLink" href="case-studies.html" style="text-decoration:none">Open full text →</a>
+            <div class="small" id="caseCycleStatus">Auto-rotating cases</div>
+          </div>
+        </div>
+
+        <!-- RIGHT: static dashboard image (one file only) -->
+        <div class="case-right">
+          <a class="dashShot" href="assets/dashboards/portfolio-dashboard.png" target="_blank" rel="noopener">
+            <img src="assets/dashboards/portfolio-dashboard.png" alt="Dashboard example" loading="lazy">
+            <div class="dashCap">Illustrative dashboard view (click to zoom)</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI CTA -->
+    <section class="card" style="margin-top:14px">
+      <h2>AI work</h2>
+      <p class="small">For MIA and MMM Copilot, see the AI page (includes governance + adoption details).</p>
+      <div class="btnrow">
+        <a class="btn" href="ai.html#mia">MIA Case →</a>
+        <a class="btn" href="ai.html#mmm">MMM Copilot Case →</a>
       </div>
     </section>
 
     <script>
       (function(){
-        // All items (each has tags so filters can change what's rotating)
-        const items = [
-          {
-            title: "KPI Operating System (multi-LOB)",
-            desc: "Standardized KPI definitions + QA + operating rhythm so leadership forums focus on decisions, not metric debates.",
+        const CASES = {
+          kpi: {
+            title: "KPI Operating System for Multi-LOB Marketing",
+            angle: "Angle: Ops + Intelligence • Standardization + trust",
             tags: ["Ops","Governance","Measurement"],
-            link: "case-studies.html#kpi-os"
+            proof: "case-studies.html#kpi-os",
+            steps: [
+              { label:"Context", body:"Multi-LOB reporting required consistent KPIs and repeatable executive readouts." },
+              { label:"What was broken", body:"Inconsistent definitions and manual processes created trust and accuracy risk." },
+              { label:"What I did", body:"Established KPI definitions, governance, QA steps, and a monthly operating rhythm." },
+              { label:"What shipped", body:"KPI dictionary + governance, dashboard index, MOR template." },
+              { label:"Adoption", body:"Embedded into rhythms; enabled stakeholders via documentation and support." },
+              { label:"Outcomes", body:"Improved exec confidence and reduced reporting risk." },
+              { label:"Next", body:"Expand automation and metric health monitoring." }
+            ]
           },
-          {
-            title: "Spend → revenue linkage (finance-grade)",
-            desc: "Connected expense and performance to revenue views to enable credible ROI conversations and investment allocation.",
-            tags: ["Ops","Measurement"],
-            link: "case-studies.html#spend-revenue"
+
+          pipeline: {
+            title: "Pipeline & Funnel Measurement Standardization",
+            angle: "Angle: Growth + Rev alignment • Lifecycle clarity",
+            tags: ["Pipeline","Growth","Measurement"],
+            proof: "case-studies.html#pipeline",
+            steps: [
+              { label:"Context", body:"Marketing and Sales needed a shared funnel truth for performance and planning." },
+              { label:"What was broken", body:"Ambiguous lifecycle definitions and inconsistent conversion views." },
+              { label:"What I did", body:"Defined stages, conversion metrics, and visibility that supports coverage discussions." },
+              { label:"What shipped", body:"Lifecycle map, funnel dashboard, coverage targets V1." },
+              { label:"Adoption", body:"Aligned stakeholders on definitions and usage in operating rhythms." },
+              { label:"Outcomes", body:"Clearer accountability and improved planning inputs." },
+              { label:"Next", body:"Instrument buying-group and channel-level diagnostics." }
+            ]
           },
-          {
-            title: "Funnel & lifecycle standardization (Marketing ↔ Sales)",
-            desc: "Defined lifecycle stages and conversion metrics to create a single funnel truth and improve planning inputs.",
-            tags: ["Ops","Measurement"],
-            link: "case-studies.html#pipeline"
+
+          spend: {
+            title: "Spend → Revenue Linkage (Finance-grade Reporting)",
+            angle: "Angle: Ops + Finance alignment • ROI credibility",
+            tags: ["Ops","Measurement","Finance"],
+            proof: "case-studies.html#spend-revenue",
+            steps: [
+              { label:"Context", body:"Expense lived outside core performance tools; leaders needed credible connection to outcomes." },
+              { label:"What was broken", body:"Hard to reconcile expense, performance, and revenue across systems." },
+              { label:"What I did", body:"Defined mappings, reconciliation logic, and audit-friendly reporting views." },
+              { label:"What shipped", body:"Spend mappings, linked datasets, ROI views used in readouts." },
+              { label:"Adoption", body:"Enabled stakeholders with documentation and repeatable views." },
+              { label:"Outcomes", body:"Stronger budget allocation discussions grounded in consistent data." },
+              { label:"Next", body:"Expand to journey-level unit economics and incrementality." }
+            ]
           },
-          {
-            title: "Journey measurement & prioritization",
-            desc: "Prioritized journeys and defined stage KPIs to focus optimization on the highest-leverage customer paths.",
-            tags: ["Journey","Measurement"],
-            link: "case-studies.html#journey"
-          },
-          {
-            title: "MIA: Marketing Intelligence Assistant",
-            desc: "Governed, role-based copilot with citations + no-inference rules to scale onboarding and self-serve intelligence.",
-            tags: ["AI","Ops","Governance"],
-            link: "ai.html#mia"
-          },
-          {
-            title: "MMM Copilot: learning + decision support",
-            desc: "Role- and scenario-based MMM enablement for channel owners and revenue marketers—always-on decision support.",
-            tags: ["AI","Measurement"],
-            link: "ai.html#mmm"
-          },
-          {
-            title: "Executive reporting risk reduction",
-            desc: "Reduced “spreadsheet surprises” via locked logic, QA steps, and governance that protects credibility in exec forums.",
-            tags: ["Ops","Governance"],
-            link: "playbooks.html"
-          },
-          {
-            title: "AI adoption operating model",
-            desc: "Scaled adoption through training cohorts, ambassadors, office hours, and internal comms—built to stick.",
-            tags: ["AI","Ops"],
-            link: "playbooks.html"
+
+          journey: {
+            title: "Customer Journey Measurement Framework",
+            angle: "Angle: Growth + Ops • Prioritize and optimize journeys",
+            tags: ["Journey","Growth","Measurement"],
+            proof: "case-studies.html#journey",
+            steps: [
+              { label:"Context", body:"Needed a structured way to prioritize journeys and focus optimization effort." },
+              { label:"What was broken", body:"Too many potential journeys; unclear KPI ownership and instrumentation requirements." },
+              { label:"What I did", body:"Built journey KPI mapping, prioritization criteria, and a repeatable optimization loop." },
+              { label:"What shipped", body:"Journey scorecard, KPI tree per stage, instrumentation checklist, test backlog template." },
+              { label:"Adoption", body:"Embedded into planning and readouts to keep focus on highest-leverage journeys." },
+              { label:"Outcomes", body:"Clearer prioritization and faster movement from insight to action." },
+              { label:"Next", body:"Layer in experimentation and incrementality by journey." }
+            ]
           }
-        ];
+        };
 
-        const el = document.getElementById("tileShow");
-        const status = document.getElementById("showStatus");
-        const prev = document.getElementById("showPrev");
-        const next = document.getElementById("showNext");
-        const pause = document.getElementById("showPause");
+        const CASE_KEYS = ["kpi","pipeline","spend","journey"];
 
-        // Filters
-        const filterBar = document.getElementById('filters');
-        const filterBtns = Array.from(filterBar.querySelectorAll('button[data-tag]'));
-        let activeTag = "All";
+        // UI
+        const caseTitle = document.getElementById("caseTitle");
+        const caseAngle = document.getElementById("caseAngle");
+        const proofLink = document.getElementById("proofLink");
+        const stepStatus = document.getElementById("stepStatus");
+        const csCard = document.getElementById("csCard");
+        const caseTabs = document.getElementById("caseTabs");
+        const tabBtns = Array.from(caseTabs.querySelectorAll("button[data-case]"));
+        const cycleStatus = document.getElementById("caseCycleStatus");
 
-        let idx = 0;
-        let paused = false;
-        let timer = null;
+        const stepPrev = document.getElementById("stepPrev");
+        const stepNext = document.getElementById("stepNext");
+        const stepPause = document.getElementById("stepPause");
 
-        function getActiveList(){
-          if (activeTag === "All") return items;
-          return items.filter(i => i.tags.includes(activeTag));
-        }
+        // timing
+        const STEP_MS = 5500;
+        const CASE_MS = 12000; // rotate to next case every 12s
+
+        // state
+        let activeCase = "kpi";
+        let stepIdx = 0;
+        let pausedSteps = false;
+        let pausedCases = false;
+        let stepTimer = null;
+        let caseTimer = null;
 
         function render(){
-          const list = getActiveList();
-          if (list.length === 0){
-            el.innerHTML = `<div class="tileShow__desc">No items for this filter yet.</div>`;
-            status.textContent = `No items`;
-            return;
-          }
+          const cfg = CASES[activeCase];
+          const step = cfg.steps[stepIdx];
 
-          if (idx >= list.length) idx = 0;
-          if (idx < 0) idx = list.length - 1;
+          caseTitle.textContent = cfg.title;
+          caseAngle.textContent = cfg.angle;
+          proofLink.href = cfg.proof;
 
-          const it = list[idx];
-
-          el.innerHTML = `
-            <div class="tileShow__top">
-              <div>
-                <h3 class="tileShow__title">${it.title}</h3>
-              </div>
-              <a class="tileShow__cta" href="${it.link}">Proof ---→</a>
+          csCard.innerHTML = `
+            <div class="csCard__kicker">${step.label}</div>
+            <div class="csCard__title">${cfg.title}</div>
+            <div class="csCard__body">${step.body}</div>
+            <div class="csCard__tags">
+              ${cfg.tags.map(t => `<span class="chip static">${t}</span>`).join("")}
             </div>
-
-            <div class="tileShow__desc">${it.desc}</div>
-
-            <div class="tileShow__tags">
-              ${it.tags.map(t => `<span class="chip static">${t}</span>`).join("")}
-            </div>
+            <div class="csCard__sig">@Jessie Zhang</div>
           `;
 
-          el.classList.remove("tileFadeIn");
-          void el.offsetWidth;
-          el.classList.add("tileFadeIn");
+          csCard.classList.remove("csFadeIn");
+          void csCard.offsetWidth;
+          csCard.classList.add("csFadeIn");
 
-          status.textContent = `Showing ${idx + 1} of ${list.length} (${activeTag})`;
+          stepStatus.textContent = `${step.label} (${stepIdx+1}/${cfg.steps.length})`;
+
+          tabBtns.forEach(b => b.setAttribute("aria-pressed", (b.dataset.case === activeCase).toString()));
+          cycleStatus.textContent = pausedCases ? "Case auto-rotate paused" : "Auto-rotating cases";
         }
 
-        function goNext(){ idx += 1; render(); }
-        function goPrev(){ idx -= 1; render(); }
-
-        function start(){
-          stop();
-          timer = setInterval(() => { if (!paused) goNext(); }, 5000);
+        function nextStep(){
+          const cfg = CASES[activeCase];
+          stepIdx = (stepIdx + 1) % cfg.steps.length;
+          render();
         }
-        function stop(){
-          if (timer) clearInterval(timer);
-          timer = null;
+        function prevStep(){
+          const cfg = CASES[activeCase];
+          stepIdx = (stepIdx - 1 + cfg.steps.length) % cfg.steps.length;
+          render();
         }
 
-        next.addEventListener("click", () => { paused = true; pause.textContent = "Resume"; goNext(); });
-        prev.addEventListener("click", () => { paused = true; pause.textContent = "Resume"; goPrev(); });
-        pause.addEventListener("click", () => {
-          paused = !paused;
-          pause.textContent = paused ? "Resume" : "Pause";
+        function nextCase(){
+          const i = CASE_KEYS.indexOf(activeCase);
+          activeCase = CASE_KEYS[(i + 1) % CASE_KEYS.length];
+          stepIdx = 0;
+          render();
+        }
+
+        function startTimers(){
+          stopTimers();
+          stepTimer = setInterval(() => { if (!pausedSteps) nextStep(); }, STEP_MS);
+          caseTimer = setInterval(() => { if (!pausedCases) nextCase(); }, CASE_MS);
+        }
+        function stopTimers(){
+          if (stepTimer) clearInterval(stepTimer);
+          if (caseTimer) clearInterval(caseTimer);
+          stepTimer = null;
+          caseTimer = null;
+        }
+
+        // step buttons
+        stepNext.addEventListener("click", () => { pausedSteps = true; stepPause.textContent = "Resume"; nextStep(); });
+        stepPrev.addEventListener("click", () => { pausedSteps = true; stepPause.textContent = "Resume"; prevStep(); });
+        stepPause.addEventListener("click", () => {
+          pausedSteps = !pausedSteps;
+          stepPause.textContent = pausedSteps ? "Resume" : "Pause";
         });
 
-        // pause on hover to read
-        el.addEventListener("mouseenter", () => { paused = true; pause.textContent = "Resume"; });
-        el.addEventListener("mouseleave", () => { paused = false; pause.textContent = "Pause"; });
-
-        // Filter controls update what rotates
-        filterBtns.forEach(btn => {
-          btn.addEventListener('click', () => {
-            activeTag = btn.dataset.tag;
-            idx = 0;
-            filterBtns.forEach(b => b.setAttribute('aria-pressed', (b.dataset.tag === activeTag).toString()));
+        // case tabs (manual selection pauses case auto-rotate for readability)
+        tabBtns.forEach(btn => {
+          btn.addEventListener("click", () => {
+            activeCase = btn.dataset.case;
+            stepIdx = 0;
+            pausedCases = true;           // pause auto rotate after manual choice
             render();
           });
         });
 
+        // hover pauses both (so it doesn’t switch while reading)
+        csCard.addEventListener("mouseenter", () => { pausedSteps = true; stepPause.textContent = "Resume"; pausedCases = true; render(); });
+        csCard.addEventListener("mouseleave", () => { pausedSteps = false; stepPause.textContent = "Pause"; /* keep pausedCases as is */ render(); });
+
         render();
-        start();
+        startTimers();
       })();
     </script>
 
