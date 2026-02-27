@@ -2232,4 +2232,33 @@ body.madison{
   opacity: .45;
   z-index: 0;
 }
-.mbp_shot{ outline: 3px solid red; }
+/* ===== MacBook mockup using a PNG cutout frame ===== */
+.mbp{
+  position: relative;
+  width: min(980px, 100%);
+  margin: 18px auto 10px;
+}
+
+.mbp__frame{
+  width: 100%;
+  height: auto;
+  display: block;
+  pointer-events: none;
+  position: relative;
+  z-index: 3;
+}
+
+/* Place screenshot behind the cutout frame */
+.mbp__shot{
+  position: absolute;
+  z-index: 2;
+
+  /* TUNE THESE 4 values to match your cutout frame */
+  left: 10.2%;
+  top: 9.6%;
+  width: 79.6%;
+  height: 63.2%;
+
+  object-fit: cover;
+  border-radius: 10px;
+}
