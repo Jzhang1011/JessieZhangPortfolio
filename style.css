@@ -1895,3 +1895,126 @@ body.madison{
   text-transform: uppercase;
   color: rgba(17,24,39,.58);
 }
+/* ===== iPad frame for case viewer ===== */
+.ipad-frame{
+  width: min(560px, 92vw);
+  margin: 0;
+  position: relative;
+}
+
+.ipad-frame__bezel{
+  position: relative;
+  border-radius: 28px;
+  padding: 14px;
+  background: #0b0f18;
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: 0 22px 60px rgba(0,0,0,.18);
+  overflow: hidden;
+}
+
+.ipad-frame__bezel::before{
+  content:"";
+  position:absolute;
+  inset: 10px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.10);
+  pointer-events:none;
+}
+
+.ipad-frame__bezel::after{
+  content:"";
+  position:absolute;
+  inset: 0;
+  border-radius: 28px;
+  background: radial-gradient(620px 240px at 25% 10%, rgba(255,255,255,.14), transparent 60%);
+  mix-blend-mode: screen;
+  opacity: .7;
+  pointer-events:none;
+}
+
+.ipad-frame__screen{
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  background: #f7f7f8;
+  overflow: hidden;
+}
+
+.ipad-frame__camera{
+  position:absolute;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(0,0,0,.35);
+}
+
+/* ===== Full-case content inside iPad ===== */
+.caseScreen{
+  position:absolute;
+  inset: 0;
+  padding: 18px 18px 16px;
+  overflow: auto; /* if content still overflows */
+}
+
+.caseScreen::-webkit-scrollbar{ width: 10px; }
+.caseScreen::-webkit-scrollbar-thumb{
+  background: rgba(17,24,39,.12);
+  border-radius: 999px;
+}
+
+.caseScreen__title{
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  font-size: 18px;
+  margin: 0;
+}
+
+.caseScreen__angle{
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(17,24,39,.55);
+}
+
+.caseGrid{
+  margin-top: 14px;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.caseBlock{
+  border: 1px solid rgba(17,24,39,.08);
+  background: rgba(255,255,255,.80);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.caseBlock__kicker{
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(17,24,39,.55);
+  font-weight: 900;
+}
+
+.caseBlock__text{
+  margin-top: 8px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: rgba(17,24,39,.76);
+}
+
+.caseSig{
+  margin-top: 12px;
+  text-align: right;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(17,24,39,.38);
+}
