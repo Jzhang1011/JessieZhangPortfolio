@@ -2151,8 +2151,19 @@ body.madison{
   from{ opacity:0; transform: translateY(8px); }
   to{ opacity:1; transform: translateY(0); }
 }
+/* Make sure both columns don't have unexpected top spacing */
+.caseLeft, .caseRight{
+  margin-top: 0;
 
-/* Make the right image behave nicely */
+/* Align dashboard with iPad frame (not with the header row) */
+.caseRight{
+  padding-top: 56px;  /* match the height of your left header area */
+}
+
+/* On smaller screens, remove the offset */
+@media (max-width: 980px){
+  .caseRight{ padding-top: 0; 
+             /* Make the right image behave nicely */
 .caseRight .dashShot img{
   max-height: 720px;
   object-fit: cover;
