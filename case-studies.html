@@ -31,172 +31,58 @@
   </header>
 
   <main class="container">
-
-    <!-- Page header -->
+    <!-- Header -->
     <section class="card">
       <h1 style="margin-top:0">Case Studies</h1>
-      <p class="small">Each case rotates through: Context → Next. The right panel shows an illustrative dashboard/artifact.</p>
-      <div class="badges">
-        <span class="chip static">Context</span>
-        <span class="chip static">What was broken</span>
-        <span class="chip static">What I did</span>
-        <span class="chip static">What shipped</span>
-        <span class="chip static">Adoption</span>
-        <span class="chip static">Outcomes</span>
-        <span class="chip static">Next</span>
+      <p class="small">Left: rotating case summaries inside an iPad frame. Right: an illustrative dashboard artifact.</p>
+
+      <div class="caseTabs" id="caseTabs" aria-label="Case selector">
+        <button class="chip" type="button" aria-pressed="true" data-case="kpi">KPI OS</button>
+        <button class="chip" type="button" aria-pressed="false" data-case="pipeline">Pipeline</button>
+        <button class="chip" type="button" aria-pressed="false" data-case="spend">Spend→Revenue</button>
+        <button class="chip" type="button" aria-pressed="false" data-case="journey">Journey</button>
       </div>
     </section>
 
-    <!-- ===================== KPI OS ===================== -->
-    <section id="kpi-os" class="card" style="margin-top:14px">
-      <div class="caseTitleRow">
-        <div>
-          <h2 style="margin:0">KPI Operating System for Multi-LOB Marketing</h2>
-          <p class="small" style="margin:8px 0 0">Angle: Ops + Intelligence • Standardization + trust</p>
-        </div>
-      </div>
-      <hr/>
+    <!-- Two-column viewer -->
+    <section class="card" style="margin-top:14px">
+      <div class="caseViewerGrid">
+        <!-- LEFT (70%): iPad frame -->
+        <div class="caseLeft">
+          <div class="caseLeftHead">
+            <div>
+              <div class="kicker">Case study</div>
+              <h2 id="caseTitle" style="margin:8px 0 0">—</h2>
+              <p class="small" id="caseAngle" style="margin:8px 0 0">—</p>
+            </div>
 
-      <div class="case-layout">
-        <!-- LEFT: phone rotator -->
-        <div class="case-left">
-          <div class="case-rotatorHead">
-            <div class="small" id="csStatus-kpi">Context (1/7)</div>
             <div class="impact-rotator__btns">
-              <button class="btn secondary" type="button" data-cs-prev="kpi">Prev</button>
-              <button class="btn secondary" type="button" data-cs-next="kpi">Next</button>
-              <button class="btn secondary" type="button" data-cs-pause="kpi">Pause</button>
+              <button class="btn secondary" id="casePrev" type="button">Prev</button>
+              <button class="btn secondary" id="caseNext" type="button">Next</button>
+              <button class="btn secondary" id="casePause" type="button">Pause</button>
             </div>
           </div>
 
-         <div class="ipad-frame" aria-label="Case study summary in iPad frame">
-  <div class="ipad-frame__bezel">
-    <div class="ipad-frame__screen">
-      <div class="caseScreen" id="caseScreen"></div>
-    </div>
-  </div>
-  <div class="ipad-frame__camera"></div>
-</div>
+          <div class="ipad-vert" aria-label="Case summary in iPad frame">
+            <div class="ipad-vert__bezel">
+              <div class="ipad-vert__screen">
+                <div class="caseScreen" id="caseScreen"></div>
+              </div>
+            </div>
+            <div class="ipad-vert__camera"></div>
+          </div>
 
-        <!-- RIGHT: dashboard image -->
-        <div class="case-right">
+          <div class="caseLeftFoot">
+            <div class="small" id="caseCycleStatus">Auto-rotating cases</div>
+            <div class="small">@Jessie Zhang</div>
+          </div>
+        </div>
+
+        <!-- RIGHT (30%): static dashboard png -->
+        <div class="caseRight">
           <a class="dashShot" href="assets/Dashboard.png" target="_blank" rel="noopener">
-            <img src="assets/Dashboard.png" alt="KPI dashboard example" loading="lazy">
-            <div class="dashCap">KPI dashboard example (click to zoom)</div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== PIPELINE ===================== -->
-    <section id="pipeline" class="card" style="margin-top:14px">
-      <div class="caseTitleRow">
-        <div>
-          <h2 style="margin:0">Pipeline & Funnel Measurement Standardization</h2>
-          <p class="small" style="margin:8px 0 0">Angle: Growth + Rev alignment • Lifecycle clarity</p>
-        </div>
-      </div>
-      <hr/>
-
-      <div class="case-layout">
-        <div class="case-left">
-          <div class="case-rotatorHead">
-            <div class="small" id="csStatus-pipeline">Context (1/7)</div>
-            <div class="impact-rotator__btns">
-              <button class="btn secondary" type="button" data-cs-prev="pipeline">Prev</button>
-              <button class="btn secondary" type="button" data-cs-next="pipeline">Next</button>
-              <button class="btn secondary" type="button" data-cs-pause="pipeline">Pause</button>
-            </div>
-          </div>
-
-          <div class="phone-mock">
-            <div class="phone-screen">
-              <div class="csCard" id="csCard-pipeline"></div>
-            </div>
-            <div class="phone-speaker"></div>
-          </div>
-        </div>
-
-        <div class="case-right">
-          <a class="dashShot" href="assets/Dashboard.png" target="_blank" rel="noopener">
-            <img src="assets/Dashboard.png" alt="Pipeline dashboard example" loading="lazy">
-            <div class="dashCap">Funnel / lifecycle dashboard (click to zoom)</div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== SPEND → REVENUE ===================== -->
-    <section id="spend-revenue" class="card" style="margin-top:14px">
-      <div class="caseTitleRow">
-        <div>
-          <h2 style="margin:0">Spend → Revenue Linkage (Finance-grade Reporting)</h2>
-          <p class="small" style="margin:8px 0 0">Angle: Ops + Finance alignment • ROI credibility</p>
-        </div>
-      </div>
-      <hr/>
-
-      <div class="case-layout">
-        <div class="case-left">
-          <div class="case-rotatorHead">
-            <div class="small" id="csStatus-spend">Context (1/7)</div>
-            <div class="impact-rotator__btns">
-              <button class="btn secondary" type="button" data-cs-prev="spend">Prev</button>
-              <button class="btn secondary" type="button" data-cs-next="spend">Next</button>
-              <button class="btn secondary" type="button" data-cs-pause="spend">Pause</button>
-            </div>
-          </div>
-
-          <div class="phone-mock">
-            <div class="phone-screen">
-              <div class="csCard" id="csCard-spend"></div>
-            </div>
-            <div class="phone-speaker"></div>
-          </div>
-        </div>
-
-        <div class="case-right">
-          <a class="dashShot" href="assets/Dashboard.png" target="_blank" rel="noopener">
-            <img src="assets/Dashboard.png" alt="Spend to revenue dashboard example" loading="lazy">
-            <div class="dashCap">Spend → revenue view (click to zoom)</div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== JOURNEY ===================== -->
-    <section id="journey" class="card" style="margin-top:14px">
-      <div class="caseTitleRow">
-        <div>
-          <h2 style="margin:0">Customer Journey Measurement Framework</h2>
-          <p class="small" style="margin:8px 0 0">Angle: Growth + Ops • Prioritize and optimize journeys</p>
-        </div>
-      </div>
-      <hr/>
-
-      <div class="case-layout">
-        <div class="case-left">
-          <div class="case-rotatorHead">
-            <div class="small" id="csStatus-journey">Context (1/7)</div>
-            <div class="impact-rotator__btns">
-              <button class="btn secondary" type="button" data-cs-prev="journey">Prev</button>
-              <button class="btn secondary" type="button" data-cs-next="journey">Next</button>
-              <button class="btn secondary" type="button" data-cs-pause="journey">Pause</button>
-            </div>
-          </div>
-
-          <div class="phone-mock">
-            <div class="phone-screen">
-              <div class="csCard" id="csCard-journey"></div>
-            </div>
-            <div class="phone-speaker"></div>
-          </div>
-        </div>
-
-        <div class="case-right">
-          <a class="dashShot" href="assets/Dashboard.png" target="_blank" rel="noopener">
-            <img src="assets/Dashboard.png" alt="Journey scorecard example" loading="lazy">
-            <div class="dashCap">Journey scorecard / prioritization (click to zoom)</div>
+            <img src="assets/Dashboard.png" alt="Dashboard example" loading="lazy">
+            <div class="dashCap">Dashboard.png (click to zoom)</div>
           </a>
         </div>
       </div>
@@ -212,147 +98,148 @@
       </div>
     </section>
 
-    <!-- Rotator Script -->
     <script>
       (function(){
         const CASES = {
           kpi: {
-            statusId: "csStatus-kpi",
-            cardId: "csCard-kpi",
-            tags: ["Ops","Governance","Measurement"],
-            steps: [
-              { label:"Context", body:"Multi-LOB reporting required consistent KPIs and repeatable executive readouts." },
-              { label:"What was broken", body:"Inconsistent definitions and manual processes created trust and accuracy risk." },
-              { label:"What I did", body:"Established KPI definitions, governance, QA steps, and a monthly operating rhythm." },
-              { label:"What shipped", body:"KPI dictionary + governance, dashboard index, MOR template." },
-              { label:"Adoption", body:"Embedded into rhythms; enabled stakeholders via documentation and support." },
-              { label:"Outcomes", body:"Improved exec confidence and reduced reporting risk." },
-              { label:"Next", body:"Expand automation and metric health monitoring." }
-            ],
-            title: "KPI Operating System"
+            title: "KPI Operating System for Multi-LOB Marketing",
+            angle: "Ops + Intelligence • Standardization + trust",
+            blocks: [
+              { k:"Context", t:"Multi-LOB reporting required consistent KPIs and repeatable executive readouts." },
+              { k:"What was broken", t:"Inconsistent definitions and manual processes created trust and accuracy risk." },
+              { k:"What I did", t:"Established KPI definitions, governance, QA steps, and a monthly operating rhythm." },
+              { k:"What shipped", t:"KPI dictionary + governance, dashboard index, MOR template." },
+              { k:"Adoption", t:"Embedded into rhythms; enabled stakeholders via documentation and support." },
+              { k:"Outcomes", t:"Improved exec confidence and reduced reporting risk." },
+              { k:"Next", t:"Expand automation and metric health monitoring." }
+            ]
           },
-
           pipeline: {
-            statusId: "csStatus-pipeline",
-            cardId: "csCard-pipeline",
-            tags: ["Pipeline","Growth","Measurement"],
-            steps: [
-              { label:"Context", body:"Marketing and Sales needed a shared funnel truth for performance and planning." },
-              { label:"What was broken", body:"Ambiguous lifecycle definitions and inconsistent conversion views." },
-              { label:"What I did", body:"Defined stages, conversion metrics, and visibility that supports coverage discussions." },
-              { label:"What shipped", body:"Lifecycle map, funnel dashboard, coverage targets V1." },
-              { label:"Adoption", body:"Aligned stakeholders on definitions and usage in operating rhythms." },
-              { label:"Outcomes", body:"Clearer accountability and improved planning inputs." },
-              { label:"Next", body:"Instrument buying-group and channel-level diagnostics." }
-            ],
-            title: "Pipeline & Funnel Standardization"
+            title: "Pipeline & Funnel Measurement Standardization",
+            angle: "Growth + Rev alignment • Lifecycle clarity",
+            blocks: [
+              { k:"Context", t:"Marketing and Sales needed a shared funnel truth for performance and planning." },
+              { k:"What was broken", t:"Ambiguous lifecycle definitions and inconsistent conversion views." },
+              { k:"What I did", t:"Defined stages, conversion metrics, and visibility that supports coverage discussions." },
+              { k:"What shipped", t:"Lifecycle map, funnel dashboard, coverage targets V1." },
+              { k:"Adoption", t:"Aligned stakeholders on definitions and usage in operating rhythms." },
+              { k:"Outcomes", t:"Clearer accountability and improved planning inputs." },
+              { k:"Next", t:"Instrument buying-group and channel-level diagnostics." }
+            ]
           },
-
           spend: {
-            statusId: "csStatus-spend",
-            cardId: "csCard-spend",
-            tags: ["Ops","Finance","Measurement"],
-            steps: [
-              { label:"Context", body:"Expense lived outside core performance tools; leaders needed credible connection to outcomes." },
-              { label:"What was broken", body:"Hard to reconcile expense, performance, and revenue across systems." },
-              { label:"What I did", body:"Defined mappings, reconciliation logic, and audit-friendly reporting views." },
-              { label:"What shipped", body:"Spend mappings, linked datasets, ROI views used in readouts." },
-              { label:"Adoption", body:"Enabled stakeholders with documentation and repeatable views." },
-              { label:"Outcomes", body:"Stronger budget allocation discussions grounded in consistent data." },
-              { label:"Next", body:"Expand to journey-level unit economics and incrementality." }
-            ],
-            title: "Spend → Revenue Linkage"
+            title: "Spend → Revenue Linkage (Finance-grade Reporting)",
+            angle: "Ops + Finance alignment • ROI credibility",
+            blocks: [
+              { k:"Context", t:"Expense lived outside core performance tools; leaders needed credible connection to outcomes." },
+              { k:"What was broken", t:"Hard to reconcile expense, performance, and revenue across systems." },
+              { k:"What I did", t:"Defined mappings, reconciliation logic, and audit-friendly reporting views." },
+              { k:"What shipped", t:"Spend mappings, linked datasets, ROI views used in readouts." },
+              { k:"Adoption", t:"Enabled stakeholders with documentation and repeatable views." },
+              { k:"Outcomes", t:"Stronger budget allocation discussions grounded in consistent data." },
+              { k:"Next", t:"Expand to journey-level unit economics and incrementality." }
+            ]
           },
-
           journey: {
-            statusId: "csStatus-journey",
-            cardId: "csCard-journey",
-            tags: ["Journey","Growth","Measurement"],
-            steps: [
-              { label:"Context", body:"Needed a structured way to prioritize journeys and focus optimization effort." },
-              { label:"What was broken", body:"Too many potential journeys; unclear KPI ownership and instrumentation requirements." },
-              { label:"What I did", body:"Built journey KPI mapping, prioritization criteria, and a repeatable optimization loop." },
-              { label:"What shipped", body:"Journey scorecard, KPI tree per stage, instrumentation checklist, test backlog template." },
-              { label:"Adoption", body:"Embedded into planning and readouts to keep focus on highest-leverage journeys." },
-              { label:"Outcomes", body:"Clearer prioritization and faster movement from insight to action." },
-              { label:"Next", body:"Layer in experimentation and incrementality by journey." }
-            ],
-            title: "Journey Measurement Framework"
+            title: "Customer Journey Measurement Framework",
+            angle: "Growth + Ops • Prioritize and optimize journeys",
+            blocks: [
+              { k:"Context", t:"Needed a structured way to prioritize journeys and focus optimization effort." },
+              { k:"What was broken", t:"Too many potential journeys; unclear KPI ownership and instrumentation requirements." },
+              { k:"What I did", t:"Built journey KPI mapping, prioritization criteria, and a repeatable optimization loop." },
+              { k:"What shipped", t:"Journey scorecard, KPI tree per stage, instrumentation checklist, test backlog template." },
+              { k:"Adoption", t:"Embedded into planning and readouts to keep focus on highest-leverage journeys." },
+              { k:"Outcomes", t:"Clearer prioritization and faster movement from insight to action." },
+              { k:"Next", t:"Layer in experimentation and incrementality by journey." }
+            ]
           }
         };
 
-        function mount(key){
-          const cfg = CASES[key];
-          const statusEl = document.getElementById(cfg.statusId);
-          const cardEl = document.getElementById(cfg.cardId);
+        const CASE_KEYS = ["kpi","pipeline","spend","journey"];
 
-          if (!statusEl || !cardEl) return;
+        const caseTitle = document.getElementById("caseTitle");
+        const caseAngle = document.getElementById("caseAngle");
+        const caseScreen = document.getElementById("caseScreen");
+        const tabs = Array.from(document.querySelectorAll("#caseTabs button[data-case]"));
 
-          let idx = 0;
-          let paused = false;
-          let timer = null;
+        const prevBtn = document.getElementById("casePrev");
+        const nextBtn = document.getElementById("caseNext");
+        const pauseBtn = document.getElementById("casePause");
+        const cycleStatus = document.getElementById("caseCycleStatus");
 
-          function render(){
-            const step = cfg.steps[idx];
-            cardEl.innerHTML = `
-              <div class="csCard__kicker">${step.label}</div>
-              <div class="csCard__title">${cfg.title}</div>
-              <div class="csCard__body">${step.body}</div>
-              <div class="csCard__tags">
-                ${cfg.tags.map(t => `<span class="chip static">${t}</span>`).join("")}
-              </div>
-              <div class="csCard__sig">@Jessie Zhang</div>
-            `;
-            cardEl.classList.remove("csFadeIn");
-            void cardEl.offsetWidth;
-            cardEl.classList.add("csFadeIn");
-            statusEl.textContent = `${step.label} (${idx+1}/${cfg.steps.length})`;
-          }
+        let active = "kpi";
+        let paused = false;
+        let timer = null;
 
-          function next(){ idx = (idx + 1) % cfg.steps.length; render(); }
-          function prev(){ idx = (idx - 1 + cfg.steps.length) % cfg.steps.length; render(); }
+        const CASE_MS = 12000;
 
-          function start(){
-            stop();
-            timer = setInterval(() => { if (!paused) next(); }, 5200);
-          }
-          function stop(){
-            if (timer) clearInterval(timer);
-            timer = null;
-          }
+        function render(){
+          const c = CASES[active];
+          caseTitle.textContent = c.title;
+          caseAngle.textContent = c.angle;
 
-          document.querySelector(`[data-cs-next="${key}"]`)?.addEventListener("click", () => {
-            paused = true;
-            document.querySelector(`[data-cs-pause="${key}"]`).textContent = "Resume";
-            next();
-          });
+          caseScreen.innerHTML = `
+            <div class="caseGrid">
+              ${c.blocks.map(b => `
+                <div class="caseBlock">
+                  <div class="caseBlock__kicker">${b.k}</div>
+                  <div class="caseBlock__text">${b.t}</div>
+                </div>
+              `).join("")}
+            </div>
+          `;
 
-          document.querySelector(`[data-cs-prev="${key}"]`)?.addEventListener("click", () => {
-            paused = true;
-            document.querySelector(`[data-cs-pause="${key}"]`).textContent = "Resume";
-            prev();
-          });
+          caseScreen.classList.remove("csFadeIn");
+          void caseScreen.offsetWidth;
+          caseScreen.classList.add("csFadeIn");
 
-          document.querySelector(`[data-cs-pause="${key}"]`)?.addEventListener("click", (e) => {
-            paused = !paused;
-            e.target.textContent = paused ? "Resume" : "Pause";
-          });
-
-          cardEl.addEventListener("mouseenter", () => {
-            paused = true;
-            document.querySelector(`[data-cs-pause="${key}"]`).textContent = "Resume";
-          });
-
-          cardEl.addEventListener("mouseleave", () => {
-            paused = false;
-            document.querySelector(`[data-cs-pause="${key}"]`).textContent = "Pause";
-          });
-
-          render();
-          start();
+          tabs.forEach(b => b.setAttribute("aria-pressed", (b.dataset.case === active).toString()));
+          cycleStatus.textContent = paused ? "Auto-rotate paused" : "Auto-rotating cases";
         }
 
-        Object.keys(CASES).forEach(mount);
+        function nextCase(){
+          const i = CASE_KEYS.indexOf(active);
+          active = CASE_KEYS[(i + 1) % CASE_KEYS.length];
+          render();
+        }
+        function prevCase(){
+          const i = CASE_KEYS.indexOf(active);
+          active = CASE_KEYS[(i - 1 + CASE_KEYS.length) % CASE_KEYS.length];
+          render();
+        }
+
+        function start(){
+          stop();
+          timer = setInterval(() => { if (!paused) nextCase(); }, CASE_MS);
+        }
+        function stop(){
+          if (timer) clearInterval(timer);
+          timer = null;
+        }
+
+        nextBtn.addEventListener("click", () => { paused = true; pauseBtn.textContent = "Resume"; nextCase(); });
+        prevBtn.addEventListener("click", () => { paused = true; pauseBtn.textContent = "Resume"; prevCase(); });
+
+        pauseBtn.addEventListener("click", () => {
+          paused = !paused;
+          pauseBtn.textContent = paused ? "Resume" : "Pause";
+          render();
+        });
+
+        tabs.forEach(btn => {
+          btn.addEventListener("click", () => {
+            active = btn.dataset.case;
+            paused = true; // pause when user selects manually
+            pauseBtn.textContent = "Resume";
+            render();
+          });
+        });
+
+        // pause auto rotate while reading
+        caseScreen.addEventListener("mouseenter", () => { paused = true; pauseBtn.textContent = "Resume"; render(); });
+
+        render();
+        start();
       })();
     </script>
 
