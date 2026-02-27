@@ -2157,3 +2157,19 @@ body.madison{
   max-height: 720px;
   object-fit: cover;
 }
+/* Put signature inside the iPad screen */
+.ipad-vert__screen{
+  position: relative; /* ensure pseudo-element is positioned correctly */
+}
+
+.ipad-vert__screen::after{
+  content: "@Jessie Zhang";
+  position: absolute;
+  right: 16px;
+  bottom: 12px;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(17,24,39,.38);
+  pointer-events: none;
+}
