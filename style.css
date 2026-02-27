@@ -2157,7 +2157,7 @@ body.madison{
 
 /* Align dashboard with iPad frame (not with the header row) */
 .caseRight{
-  padding-top: 56px;  /* match the height of your left header area */
+  padding-top: 120px;  /* match the height of your left header area */
 }
 
 /* On smaller screens, remove the offset */
