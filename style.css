@@ -2300,3 +2300,52 @@ body.madison{
   object-fit: cover;
   display: block;
 }
+/* ===== Screenshot cards with colored border ring ===== */
+.shotCard{
+  display: block;
+  margin: 18px auto 8px;
+  max-width: 980px;
+  border-radius: 22px;
+  padding: 10px; /* thickness of the border ring */
+  background: linear-gradient(135deg, rgba(141,89,233,.95), rgba(235,224,33,.90));
+  box-shadow: 0 22px 60px rgba(0,0,0,.12);
+  text-decoration: none;
+}
+
+.shotCard img{
+  width: 100%;
+  display: block;
+  border-radius: 16px;
+  border: 1px solid rgba(0,0,0,.08);
+  background: #0b0f18;
+}
+
+.shotCap{
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  color: rgba(17,24,39,.60);
+  padding: 0 4px;
+}
+
+/* Hover polish */
+.shotCard:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 30px 80px rgba(0,0,0,.16);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+/* Optional: different “brand” borders per card */
+.shotCard--mia{
+  background: linear-gradient(135deg, rgba(141,89,233,.95), rgba(0,0,0,.10));
+}
+
+.shotCard--mmm{
+  background: linear-gradient(135deg, rgba(235,224,33,.95), rgba(141,89,233,.45));
+}
+
+@media (max-width: 520px){
+  .shotCard{ padding: 8px; border-radius: 18px; }
+  .shotCard img{ border-radius: 14px; }
+}
