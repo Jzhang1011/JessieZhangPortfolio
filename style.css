@@ -2162,7 +2162,7 @@ body.madison{
 
 /* On smaller screens, remove the offset */
 @media (max-width: 980px){
-  .caseRight{ padding-top: 0; 
+  .caseRight{ padding-top: 120; 
              /* Make the right image behave nicely */
 .caseRight .dashShot img{
   max-height: 720px;
