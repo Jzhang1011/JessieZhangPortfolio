@@ -2054,7 +2054,7 @@ body.madison{
 
 /* ===== Vertical iPad frame ===== */
 .ipad-vert{
-  width: min(720px, 100%);
+  width: min(980px, 100%);
   margin: 0;
   position: relative;
 }
@@ -2091,7 +2091,7 @@ body.madison{
 
 .ipad-vert__screen{
   position: relative;
-  aspect-ratio: 3 / 4; /* vertical iPad feel */
+  aspect-ratio: 4 / 3; /* horizontal iPad feel */
   border-radius: 18px;
   background: #f7f7f8;
   overflow: hidden;
@@ -2113,7 +2113,7 @@ body.madison{
 .caseScreen{
   position:absolute;
   inset: 0;
-  padding: 18px 18px 16px;
+  padding: 16px 16px 14px;
   overflow: hidden; /* keeps it “fit” */
 }
 
@@ -2127,7 +2127,7 @@ body.madison{
   border: 1px solid rgba(17,24,39,.08);
   background: rgba(255,255,255,.84);
   border-radius: 14px;
-  padding: 12px;
+  padding: 10px;
 }
 
 .caseBlock__kicker{
@@ -2140,8 +2140,8 @@ body.madison{
 
 .caseBlock__text{
   margin-top: 8px;
-  font-size: 13.5px;
-  line-height: 1.55;
+  font-size: 13px;
+  line-height: 1.5;
   color: rgba(17,24,39,.76);
 }
 
