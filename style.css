@@ -1009,6 +1009,15 @@ body.madison{
   gap: 40px;
   align-items: center;
 }
+.hero2-left {
+  max-width: 680px;
+}
+
+.hero2-right {
+  justify-self: end;
+  width: 100%;
+  max-width: 420px;
+}
 @media (max-width: 980px){
   .hero2{ grid-template-columns: 1fr; }
 }
