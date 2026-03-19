@@ -31,27 +31,40 @@
   </header>
 
   <main class="container">
-    <!-- Header -->
-    <section class="card">
-      <h1 style="margin-top:0">Case Studies</h1>
-      <p class="small">Left: rotating case summaries inside an iPad frame. Right: an illustrative dashboard artifact.</p>
 
-      <div class="caseTabs" id="caseTabs" aria-label="Case selector">
+    <!-- HERO -->
+    <section class="card">
+      <h1 style="margin-top:0">Case studies</h1>
+      <p class="small">
+        Examples of how I translate fragmented marketing operations into governed systems,
+        scalable intelligence, and decision-ready frameworks.
+      </p>
+
+      <div class="badges">
+        <span class="chip static">Operating model design</span>
+        <span class="chip static">Revenue alignment</span>
+        <span class="chip static">Measurement strategy</span>
+        <span class="chip static">Decision support</span>
+        <span class="chip static">Knowledge scaling</span>
+      </div>
+
+      <div class="caseTabs" id="caseTabs" aria-label="Case selector" style="margin-top:16px">
         <button class="chip" type="button" aria-pressed="true" data-case="kpi">KPI OS</button>
         <button class="chip" type="button" aria-pressed="false" data-case="pipeline">Pipeline</button>
-        <button class="chip" type="button" aria-pressed="false" data-case="spend">Spend→Revenue</button>
+        <button class="chip" type="button" aria-pressed="false" data-case="spend">Spend → Revenue</button>
         <button class="chip" type="button" aria-pressed="false" data-case="journey">Journey</button>
       </div>
     </section>
 
-    <!-- Two-column viewer -->
+    <!-- VIEWER -->
     <section class="card" style="margin-top:14px">
       <div class="caseViewerGrid">
-        <!-- LEFT (70%): iPad frame -->
+
+        <!-- LEFT -->
         <div class="caseLeft">
           <div class="caseLeftHead">
             <div>
-              <div class="kicker">Case study</div>
+              <div class="kicker">Featured case</div>
               <h2 id="caseTitle" style="margin:8px 0 0">—</h2>
               <p class="small" id="caseAngle" style="margin:8px 0 0">—</p>
             </div>
@@ -72,15 +85,67 @@
             <div class="ipad-vert__camera"></div>
           </div>
 
-         
+          <p class="small" id="caseCycleStatus" style="margin:10px 0 0">Auto-rotating cases</p>
         </div>
 
-        <!-- RIGHT (30%): static dashboard png -->
+        <!-- RIGHT -->
         <div class="caseRight">
-          <a class="dashShot" href="assets/Dashboard.png" target="_blank" rel="noopener">
-            <img src="assets/Dashboard.png" alt="Dashboard example" loading="lazy">
-        
-          </a>
+          <div class="two-col__card" style="height:100%">
+            <h3 style="margin-top:0">What these cases show</h3>
+            <ul class="list">
+              <li>How I turn reporting needs into operating systems</li>
+              <li>How I connect marketing activity to business outcomes</li>
+              <li>How I align teams around definitions, governance, and action</li>
+              <li>How I build decision frameworks that scale beyond individual experts</li>
+            </ul>
+
+            <hr style="margin:16px 0">
+
+            <h3>Representative artifact</h3>
+            <a class="dashShot" href="assets/Dashboard.png" target="_blank" rel="noopener">
+              <img src="assets/Dashboard.png" alt="Dashboard example" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STRATEGIC THEMES -->
+    <section class="card" style="margin-top:14px">
+      <h2>How I approach transformation work</h2>
+      <div class="two-col">
+        <div class="two-col__card">
+          <h3>1. Clarify the decision</h3>
+          <p class="small">
+            I start by identifying the decision that needs to move faster or become more reliable,
+            not just the metric that needs to be reported.
+          </p>
+        </div>
+
+        <div class="two-col__card">
+          <h3>2. Build the operating layer</h3>
+          <p class="small">
+            I translate fragmented data, roles, and workflows into a usable operating model
+            with definitions, ownership, and governance.
+          </p>
+        </div>
+      </div>
+
+      <div class="two-col" style="margin-top:14px">
+        <div class="two-col__card">
+          <h3>3. Enable adoption</h3>
+          <p class="small">
+            I design systems people can actually use — dashboards, templates, frameworks,
+            or AI-enabled tools that support real workflows.
+          </p>
+        </div>
+
+        <div class="two-col__card">
+          <h3>4. Scale knowledge</h3>
+          <p class="small">
+            The goal is not just to solve one problem once, but to make expertise reusable
+            and decision-making more scalable across the organization.
+          </p>
         </div>
       </div>
     </section>
@@ -88,7 +153,10 @@
     <!-- AI CTA -->
     <section class="card" style="margin-top:14px">
       <h2>AI work</h2>
-      <p class="small">For MIA and MMM Copilot, see the AI page (includes governance + adoption details).</p>
+      <p class="small">
+        See how this same operating-model mindset extends into AI-native marketing intelligence,
+        including MIA and MMM Copilot.
+      </p>
       <div class="btnrow">
         <a class="btn" href="ai.html#mia">MIA Case →</a>
         <a class="btn" href="ai.html#mmm">MMM Copilot Case →</a>
@@ -100,59 +168,54 @@
         const CASES = {
           kpi: {
             title: "KPI Operating System for Multi-LOB Marketing",
-            angle: "Ops + Intelligence • Standardization + trust",
+            angle: "Standardization, trust, and executive decision support",
             blocks: [
-              { k:"Context", t:"Multi-LOB reporting required consistent KPIs and repeatable executive readouts." },
-              { k:"What was broken", t:"Inconsistent definitions and manual processes created trust and accuracy risk." },
-              { k:"What I did", t:"Established KPI definitions, governance, QA steps, and a monthly operating rhythm." },
-              { k:"What shipped", t:"KPI dictionary + governance, dashboard index, MOR template." },
-              { k:"Adoption", t:"Embedded into rhythms; enabled stakeholders via documentation and support." },
-              { k:"Outcomes", t:"Improved exec confidence and reduced reporting risk." },
-              { k:"Next", t:"Expand automation and metric health monitoring." }
+              { k:"Business problem", t:"Marketing leaders needed consistent KPI definitions and reliable executive reporting across multiple lines of business." },
+              { k:"Root issue", t:"Definitions were fragmented, reporting logic varied, and trust in metrics could erode when the same KPI meant different things in different places." },
+              { k:"My role", t:"I designed the operating layer: KPI definitions, reporting logic, governance practices, and a repeatable monthly rhythm for visibility and review." },
+              { k:"What changed", t:"Metrics became more standardized, sources became clearer, and leadership conversations could focus more on decisions than reconciliation." },
+              { k:"Strategic value", t:"This shifted reporting from static output to a more scalable decision-support system." }
             ]
           },
+
           pipeline: {
             title: "Pipeline & Funnel Measurement Standardization",
-            angle: "Growth + Rev alignment • Lifecycle clarity",
+            angle: "Shared lifecycle logic to align marketing and sales performance",
             blocks: [
-              { k:"Context", t:"Marketing and Sales needed a shared funnel truth for performance and planning." },
-              { k:"What was broken", t:"Ambiguous lifecycle definitions and inconsistent conversion views." },
-              { k:"What I did", t:"Defined stages, conversion metrics, and visibility that supports coverage discussions." },
-              { k:"What shipped", t:"Lifecycle map, funnel dashboard, coverage targets V1." },
-              { k:"Adoption", t:"Aligned stakeholders on definitions and usage in operating rhythms." },
-              { k:"Outcomes", t:"Clearer accountability and improved planning inputs." },
-              { k:"Next", t:"Instrument buying-group and channel-level diagnostics." }
+              { k:"Business problem", t:"Marketing and Sales needed a common view of funnel progression and pipeline contribution to support planning and accountability." },
+              { k:"Root issue", t:"Lifecycle stages and conversion logic were not consistently defined, making it harder to compare performance or set expectations." },
+              { k:"My role", t:"I created the structure for shared funnel visibility by clarifying definitions, standardizing views, and aligning reporting to the decisions leaders needed to make." },
+              { k:"What changed", t:"The organization gained a cleaner way to discuss conversion, coverage, and marketing contribution with less ambiguity." },
+              { k:"Strategic value", t:"This improved the quality of growth discussions by creating one operating language for funnel performance." }
             ]
           },
+
           spend: {
-            title: "Spend → Revenue Linkage (Finance-grade Reporting)",
-            angle: "Ops + Finance alignment • ROI credibility",
+            title: "Spend-to-Revenue Linkage",
+            angle: "Finance-grade visibility into marketing investment and outcomes",
             blocks: [
-              { k:"Context", t:"Expense lived outside core performance tools; leaders needed credible connection to outcomes." },
-              { k:"What was broken", t:"Hard to reconcile expense, performance, and revenue across systems." },
-              { k:"What I did", t:"Defined mappings, reconciliation logic, and audit-friendly reporting views." },
-              { k:"What shipped", t:"Spend mappings, linked datasets, ROI views used in readouts." },
-              { k:"Adoption", t:"Enabled stakeholders with documentation and repeatable views." },
-              { k:"Outcomes", t:"Stronger budget allocation discussions grounded in consistent data." },
-              { k:"Next", t:"Expand to journey-level unit economics and incrementality." }
+              { k:"Business problem", t:"Leaders needed a more credible way to connect marketing spend with business outcomes and support budget allocation decisions." },
+              { k:"Root issue", t:"Expense, performance, and revenue lived across different systems, making reconciliation slow and ROI conversations difficult to trust." },
+              { k:"My role", t:"I worked through the mapping logic and reporting structure required to connect spend with performance in a more audit-friendly, decision-ready way." },
+              { k:"What changed", t:"Marketing investment discussions became more grounded in consistent views instead of one-off reconciliations." },
+              { k:"Strategic value", t:"This moved the organization closer to finance-grade marketing measurement and more disciplined allocation decisions." }
             ]
           },
+
           journey: {
             title: "Customer Journey Measurement Framework",
-            angle: "Growth + Ops • Prioritize and optimize journeys",
+            angle: "Prioritization and optimization through journey-based thinking",
             blocks: [
-              { k:"Context", t:"Needed a structured way to prioritize journeys and focus optimization effort." },
-              { k:"What was broken", t:"Too many potential journeys; unclear KPI ownership and instrumentation requirements." },
-              { k:"What I did", t:"Built journey KPI mapping, prioritization criteria, and a repeatable optimization loop." },
-              { k:"What shipped", t:"Journey scorecard, KPI tree per stage, instrumentation checklist, test backlog template." },
-              { k:"Adoption", t:"Embedded into planning and readouts to keep focus on highest-leverage journeys." },
-              { k:"Outcomes", t:"Clearer prioritization and faster movement from insight to action." },
-              { k:"Next", t:"Layer in experimentation and incrementality by journey." }
+              { k:"Business problem", t:"The organization needed a more structured way to decide which journeys mattered most and how to measure them consistently." },
+              { k:"Root issue", t:"Journey measurement was fragmented across teams, with unclear KPI ownership and inconsistent instrumentation." },
+              { k:"My role", t:"I built the measurement framework: journey stages, KPI mapping, prioritization logic, and the structure for an optimization loop." },
+              { k:"What changed", t:"Teams could better focus on high-leverage journeys and move more quickly from insight to action." },
+              { k:"Strategic value", t:"This helped turn journey work from fragmented activity into a more coherent growth framework." }
             ]
           }
         };
 
-        const CASE_KEYS = ["kpi","pipeline","spend","journey"];
+        const CASE_KEYS = ["kpi", "pipeline", "spend", "journey"];
 
         const caseTitle = document.getElementById("caseTitle");
         const caseAngle = document.getElementById("caseAngle");
@@ -199,6 +262,7 @@
           active = CASE_KEYS[(i + 1) % CASE_KEYS.length];
           render();
         }
+
         function prevCase(){
           const i = CASE_KEYS.indexOf(active);
           active = CASE_KEYS[(i - 1 + CASE_KEYS.length) % CASE_KEYS.length];
@@ -209,13 +273,23 @@
           stop();
           timer = setInterval(() => { if (!paused) nextCase(); }, CASE_MS);
         }
+
         function stop(){
           if (timer) clearInterval(timer);
           timer = null;
         }
 
-        nextBtn.addEventListener("click", () => { paused = true; pauseBtn.textContent = "Resume"; nextCase(); });
-        prevBtn.addEventListener("click", () => { paused = true; pauseBtn.textContent = "Resume"; prevCase(); });
+        nextBtn.addEventListener("click", () => {
+          paused = true;
+          pauseBtn.textContent = "Resume";
+          nextCase();
+        });
+
+        prevBtn.addEventListener("click", () => {
+          paused = true;
+          pauseBtn.textContent = "Resume";
+          prevCase();
+        });
 
         pauseBtn.addEventListener("click", () => {
           paused = !paused;
@@ -226,14 +300,17 @@
         tabs.forEach(btn => {
           btn.addEventListener("click", () => {
             active = btn.dataset.case;
-            paused = true; // pause when user selects manually
+            paused = true;
             pauseBtn.textContent = "Resume";
             render();
           });
         });
 
-        // pause auto rotate while reading
-        caseScreen.addEventListener("mouseenter", () => { paused = true; pauseBtn.textContent = "Resume"; render(); });
+        caseScreen.addEventListener("mouseenter", () => {
+          paused = true;
+          pauseBtn.textContent = "Resume";
+          render();
+        });
 
         render();
         start();
